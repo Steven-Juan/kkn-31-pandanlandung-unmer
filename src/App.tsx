@@ -1,12 +1,12 @@
 import React from 'react'
 import Hero from './components/Hero'
-import Hero2 from './components/Hero2'
+import Feature from './components/Feature'
 
 function App() {
   return (
     <> 
       <Hero />
-      <Hero2/>
+      <Feature/>
     </>
   )
 }
