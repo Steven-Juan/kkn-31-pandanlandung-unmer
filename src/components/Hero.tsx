@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
       <img
         src={assets.background}
         alt="Background"
-        className="absolute inset-0 w-full h-full object-cover object-center -z-10 opacity-30 blur-sm"
+        className="absolute inset-0 w-full h-full object-cover object-center -z-10 opacity-30 blur-[10px]"
       />
 
       {/* NAVBAR */}
@@ -31,7 +31,11 @@ const Hero: React.FC = () => {
             {/* NAV LINKS */}
             <div className="hidden md:flex gap-8 text-sm">
               {navItems.map((item) => (
-                <a key={item} href="/" className="hover:text-accent transition">
+                <a
+                  key={item}
+                  href="/"
+                  className="sm:hover:text-accent hover:border-b transition"
+                >
                   {item}
                 </a>
               ))}
