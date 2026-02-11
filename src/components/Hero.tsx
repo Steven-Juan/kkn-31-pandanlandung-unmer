@@ -19,8 +19,15 @@ const Hero: React.FC<HeroProps> = ({ theme }) => {
       {/* HERO SECTION */}
       <section className="flex flex-col md:flex-row items-center justify-between mt-20 px-4 md:px-16 lg:px-24 xl:px-32 pb-20 gap-16">
         <div className="text-center md:text-left">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-secondary text-xs mb-4">
-            Desa Pandanlandung, Kec. Wagir, Kab Malang, Jawa Timur
+          <div className="rainbow relative z-0 bg-white/15 overflow-hidden p-px inline-flex items-center justify-center rounded-full transition duration-300 active:scale-100 mt-28 md:mt-32">
+            <div className="flex items-center justify-center gap-3 px-4 py-2.5 text-primary dark:text-text-invert rounded-full text-xs font-medium bg-surface/80 dark:bg-primary/80 backdrop-blur">
+              <div className="relative flex size-3 items-center justify-center">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-cyan-300 opacity-75 animate-ping duration-300"></span>
+                <span className="relative inline-flex size-2 rounded-full bg-cyan-500"></span>
+              </div>
+              Desa Pandanlandung, Kec. Wagir, Kab Malang, Jawa Timur
+            </div>
+            
           </div>
 
           <h1 className="text-5xl md:text-6xl leading-tight font-bold max-w-xl">

@@ -37,3 +37,28 @@
     -moz-osx-font-smoothing: grayscale;
   }
 }
+
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.rainbow::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  background-size: 50% 30%;
+  filter: blur(6px);
+  background-image: linear-gradient(#fff);
+  animation: rotate 3s linear infinite;
+}
+html:not(.dark) .rainbow::before {
+    background-image: linear-gradient(var(--color-primary));
+}
