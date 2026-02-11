@@ -1,7 +1,6 @@
-import React, { type Dispatch, type SetStateAction } from "react";
+import React, { useState, type Dispatch, type SetStateAction } from "react";
 import assets from "../assets";
-import ArrowIcon from "../assets/icons/arrow";
-import CloseIcon from "../assets/icons/close";
+import ThemeToggleBtn from "./ThemeToggleBtn";
 
 type NavbarProps = {
   theme: "light" | "dark";
@@ -9,6 +8,8 @@ type NavbarProps = {
 };
 
 const Navbar: React.FC<NavbarProps> = ({ theme }) => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   const navItems = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
@@ -27,26 +28,51 @@ const Navbar: React.FC<NavbarProps> = ({ theme }) => {
           />
         </a>
 
-        <div className="text-primary dark:text-text-invert sm:text-sm max-sm:w-60 max-sm:pl-10 max-sm:fixed top-0 bottom-0 right-0 max-sm:min-h-screen max-sm:h-full max-sm:flex-col max-sm:bg-primary max-sm:text-white max-sm:pt-20 flex sm:items-center gap-5 transition-all">
-          <CloseIcon className="w-5 h-5 absolute top-4 right-4 sm:hidden text-primary dark:text-text-invert " />
+        <div
+          className={`
+            text-primary dark:text-text-invert sm:text-sm
+            ${!sidebarOpen ? "max-sm:w-0 overflow-hidden" : "max-sm:w-60 max-sm:pl-10"}
+            max-sm:fixed top-0 bottom-0 right-0
+            max-sm:min-h-screen max-sm:h-full
+            max-sm:flex-col max-sm:bg-secondary max-sm:text-white max-sm:pt-20
+            flex sm:items-center gap-5 transition-all
+          `}
+        >
+          <img
+            src={assets.close_icon}
+            className="w-5 h-5 absolute top-4 right-4 sm:hidden cursor-pointer"
+            onClick={() => setSidebarOpen(false)}
+            alt="Close"
+          />
+
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="sm:hover:text-accent hover:border-b transition"
+              className=" sm:hover:border-b transition"
+              onClick={() => setSidebarOpen(false)}
             >
               {item.label}
             </a>
           ))}
         </div>
 
-        <div>
+        <div className="flex items-center gap-2 sm:gap-4">
+          <ThemeToggleBtn theme={theme} setTheme={() => {}} />
+
+          <img
+            src={theme === "dark" ? assets.menu_icon_dark : assets.menu_icon}
+            alt="Open menu"
+            className="w-8 sm:hidden cursor-pointer"
+            onClick={() => setSidebarOpen(true)}
+          />
+
           <a
             href="#contact-us"
             className="text-sm max-sm:hidden flex items-center gap-2 bg-surface text-primary px-6 py-2 rounded-full cursor-pointer hover:scale-105 transition-all"
           >
             Connect
-            <ArrowIcon className="w-4 h-4" />
+            <assets.ArrowIcon className="w-4 h-4" />
           </a>
         </div>
       </div>
