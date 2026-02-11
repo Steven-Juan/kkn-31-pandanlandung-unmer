@@ -8,18 +8,13 @@ function App() {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
 
   useEffect(() => {
-    const root = document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
+    document.documentElement.classList.toggle("dark", theme === "dark");
   }, [theme]);
 
   return (
     <div className="relative bg-surface dark:bg-primary min-h-screen">
       <Navbar theme={theme} setTheme={setTheme} />
-      <Hero />
+      <Hero theme={theme} setTheme={setTheme}/>
       <Feature />
     </div>
   );

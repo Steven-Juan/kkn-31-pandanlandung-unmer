@@ -1,11 +1,17 @@
+import React, { useState, type Dispatch, type SetStateAction } from "react";
 import assets from "../assets";
 
-const Hero: React.FC = () => {
+type HeroProps = {
+  theme: "light" | "dark";
+  setTheme: Dispatch<SetStateAction<"light" | "dark">>;
+};
+
+const Hero: React.FC<HeroProps> = ({ theme }) => {
   return (
-    <div className="relative isolate min-h-screen overflow-hidden text-text-invert">
+    <div className="relative isolate min-h-screen overflow-hidden text-primary dark:text-text-invert">
       {/* BACKGROUND SVG */}
       <img
-        src={assets.background}
+        src={theme === "dark" ? assets.background : assets.backgroundlight}
         alt="Background"
         className="absolute inset-0 w-full h-full object-cover object-center -z-10 opacity-30 blur-[10px]"
       />
@@ -27,7 +33,7 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center md:justify-start">
-            <button className="bg-surface text-text-primary px-7 h-11 rounded-md hover:bg-accent transition">
+            <button className="bg-primary dark:bg-surface text-text-invert dark:text-text-primary px-7 h-11 rounded-md hover:bg-accent transition">
               Get started
             </button>
 

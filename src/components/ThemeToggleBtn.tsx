@@ -16,7 +16,7 @@ const ThemeToggleBtn: React.FC<ThemeToggleBtnProps> = ({ theme, setTheme }) => {
       <img
         src={theme === "dark" ? assets.sun_icon : assets.moon_icon}
         alt="Toggle theme"
-        className="size-8.5 p-1.5 border border-gray-500 rounded-full"
+        className="size-8.5 p-1.5 border border-gray-500 rounded-full cursor-pointer"
       />
     </button>
   );

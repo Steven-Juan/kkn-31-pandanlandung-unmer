@@ -7,7 +7,7 @@ type NavbarProps = {
   setTheme: Dispatch<SetStateAction<"light" | "dark">>;
 };
 
-const Navbar: React.FC<NavbarProps> = ({ theme }) => {
+const Navbar: React.FC<NavbarProps> = ({ theme, setTheme }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const navItems = [
@@ -35,7 +35,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme }) => {
             max-sm:fixed top-0 bottom-0 right-0
             max-sm:min-h-screen max-sm:h-full
             max-sm:flex-col max-sm:bg-secondary max-sm:text-white max-sm:pt-20
-            flex sm:items-center gap-5 transition-all
+            flex sm:items-center gap-5 transition-[width]
           `}
         >
           <img
@@ -58,7 +58,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme }) => {
         </div>
 
         <div className="flex items-center gap-2 sm:gap-4">
-          <ThemeToggleBtn theme={theme} setTheme={() => {}} />
+          <ThemeToggleBtn theme={theme} setTheme={setTheme} />
 
           <img
             src={theme === "dark" ? assets.menu_icon_dark : assets.menu_icon}
@@ -69,7 +69,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme }) => {
 
           <a
             href="#contact-us"
-            className="text-sm max-sm:hidden flex items-center gap-2 bg-surface text-primary px-6 py-2 rounded-full cursor-pointer hover:scale-105 transition-all"
+            className="text-sm max-sm:hidden flex items-center gap-2 bg-primary dark:bg-surface text-text-invert dark:text-primary px-6 py-2 rounded-full cursor-pointer hover:scale-105 transition-all"
           >
             Connect
             <assets.ArrowIcon className="w-4 h-4" />
