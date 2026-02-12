@@ -17,8 +17,8 @@ const Hero: React.FC<HeroProps> = ({ theme }) => {
       />
 
       {/* HERO SECTION */}
-      <section className="flex flex-col md:flex-row items-center justify-between mt-20 px-4 md:px-16 lg:px-24 xl:px-32 pb-20 gap-16">
-        <div className="text-center md:text-left">
+      <section className="flex flex-col md:flex-row items-center justify-between sm:md:mt-20 px-4 md:px-16 lg:px-24 xl:px-32 pb-20 gap-16">
+        <div className="text-center md:text-left sm:md:mb-20">
           <div className="rainbow relative z-0 bg-white/15 overflow-hidden p-px inline-flex items-center justify-center rounded-full transition duration-300 active:scale-100 mt-28 md:mt-32">
             <div className="flex items-center justify-center gap-3 px-4 py-2.5 text-primary dark:text-text-invert rounded-full text-xs font-medium bg-surface/80 dark:bg-primary/80 backdrop-blur">
               <div className="relative flex size-3 items-center justify-center">
@@ -27,11 +27,16 @@ const Hero: React.FC<HeroProps> = ({ theme }) => {
               </div>
               Desa Pandanlandung, Kec. Wagir, Kab Malang, Jawa Timur
             </div>
-            
           </div>
 
           <h1 className="text-5xl md:text-6xl leading-tight font-bold max-w-xl">
-            KKN 31 UNMER Pandanlandung
+            KKN 31{" "}
+            <span className="inline-flex">
+              <span className="text-[#0067A5] dark:text-[#FFED00]">U</span>
+              <span className="text-[#F7941D] dark:text-[#F7941D]">N</span>
+              <span className="text-[#0067A5] dark:text-[#FFED00]">MER</span>
+            </span>{" "}
+            Pandanlandung
           </h1>
 
           <p className="text-sm text-muted max-w-lg mt-3">

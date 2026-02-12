@@ -8,6 +8,7 @@ import CloseIcon from "../assets/icons/close";
 import close_icon from "./icons/close_icon.svg";
 import sun_icon from "./icons/sun_icon.svg";
 import moon_icon from "./icons/moon_icon.svg";
+import hero_img from "./images/hero_img.png";
 
 const assets = {
   logo,
@@ -20,6 +21,7 @@ const assets = {
   close_icon,
   sun_icon,
   moon_icon,
+  hero_img,
 };
 
 export default assets;

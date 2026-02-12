@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Hero from "./components/Hero";
 import Feature from "./components/Feature";
 import Navbar from "./components/Navbar";
+import Hero2 from "./components/Hero2";
 
 function App() {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
@@ -14,7 +15,8 @@ function App() {
     <div className="relative bg-surface dark:bg-primary min-h-screen">
       <Navbar theme={theme} setTheme={setTheme} />
       <Hero theme={theme} setTheme={setTheme} />
-      <Feature />
+      <Hero2 theme={theme} setTheme={setTheme} />
+      <Feature theme={theme} setTheme={setTheme} />
     </div>
   );
 }
