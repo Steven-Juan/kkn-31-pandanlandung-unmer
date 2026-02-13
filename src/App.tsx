@@ -1,9 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Hero from "./components/Hero";
-import Hero1 from "./components/Hero1";
-import Feature from "./components/Feature";
 import Navbar from "./components/Navbar";
+import LogoDisplay from "./components/LogoDisplay";
+import About from "./components/About";
 
 function App() {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
@@ -15,8 +15,7 @@ function App() {
     <div className="relative bg-surface dark:bg-primary min-h-screen">
       <Navbar theme={theme} setTheme={setTheme} />
       <Hero theme={theme} setTheme={setTheme} />
-      <Hero1 theme={theme} setTheme={setTheme} />
-      <Feature theme={theme} setTheme={setTheme} />
+      <About/>      
     </div>
   );
 }

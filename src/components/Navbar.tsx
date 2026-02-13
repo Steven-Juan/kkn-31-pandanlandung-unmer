@@ -11,10 +11,12 @@ const Navbar: React.FC<NavbarProps> = ({ theme, setTheme }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const navItems = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Our Work", href: "/our-work" },
-    { label: "Contact Us", href: "/contact-us" },
+    { label: "Beranda", href: "/" },
+    { label: "Tentang Kami", href: "#about" },
+    { label: "Struktur Tim", href: "#team" },
+    { label: "Program Kerja", href: "#program" },
+    { label: "Dokumentasi", href: "#gallery" },
+    { label: "Kontak", href: "#contact" },
   ];
 
   return (
@@ -22,8 +24,8 @@ const Navbar: React.FC<NavbarProps> = ({ theme, setTheme }) => {
       <div className="flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 font-medium">
         <a href="/" className="flex items-center">
           <img
-            src={assets.logo}
-            className="w-auto h-20"
+            src={assets.logo_kkn}
+            className="w-auto h-15"
             alt="Logo KKN 31 Pandanlandung"
           />
         </a>

@@ -62,3 +62,16 @@
 html:not(.dark) .rainbow::before {
     background-image: linear-gradient(var(--color-primary));
 }
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marqueeScroll 30s linear infinite;
+}
