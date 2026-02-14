@@ -6,14 +6,14 @@ const About = () => {
       id="about"
       className="relative py-24 px-6 sm:px-12 lg:px-24 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto space-y-16">
+      <div className="max-w-8xl mx-auto space-y-6">
         {/* ================= INTRO ================= */}
         <div className="text-center space-y-6">
           <h2 className="text-primary dark:text-text-invert text-3xl sm:text-4xl md:text-5xl font-semibold">
             Tentang Kami
           </h2>
 
-          <p className="text-primary dark:text-text-invert text-sm sm:text-base md:text-lg max-w-4xl mx-auto leading-relaxed">
+          <p className="text-primary dark:text-text-invert text-sm sm:text-base md:text-lg max-w-6xl mx-auto leading-relaxed">
             KKN 31 Universitas Merdeka Malang merupakan kelompok mahasiswa yang
             melaksanakan program pengabdian masyarakat di Desa Pandanlandung,
             Kecamatan Wagir, Kabupaten Malang. Melalui tema konservasi sumber
@@ -24,7 +24,7 @@ const About = () => {
         </div>
 
         {/* ================= VISI MISI CARD ================= */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-4">
           {/* ===== VISI CARD ===== */}
           <div
             className="bg-accent/80 dark:bg-accent/20 

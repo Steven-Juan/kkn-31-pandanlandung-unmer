@@ -11,7 +11,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, setTheme }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const navItems = [
-    { label: "Beranda", href: "/" },
+    { label: "Beranda", href: "#home" },
     { label: "Tentang Kami", href: "#about" },
     { label: "Struktur Tim", href: "#team" },
     { label: "Program Kerja", href: "#program" },
