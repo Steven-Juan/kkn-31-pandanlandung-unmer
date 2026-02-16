@@ -30,7 +30,7 @@ const About = () => {
             className="bg-accent/80 dark:bg-accent/20 
                text-primary dark:text-text-invert 
                backdrop-blur-xl rounded-3xl 
-               shadow-xl p-8 sm:p-10 space-y-6"
+               shadow-xl p-6 sm:p-8 space-y-6"
           >
             <h3 className="text-lg sm:text-xl md:text-2xl font-medium tracking-wide border-b pb-3 text-center">
               Visi
@@ -48,7 +48,7 @@ const About = () => {
             className="bg-accent/80 dark:bg-accent/20 
                text-primary dark:text-text-invert 
                backdrop-blur-xl rounded-3xl 
-               shadow-xl p-8 sm:p-10 space-y-6"
+               shadow-xl py-4 px-6 sm:py-6 sm:px-8 space-y-6"
           >
             <h3 className="text-lg sm:text-xl md:text-2xl font-medium tracking-wide border-b pb-3 text-center">
               Misi

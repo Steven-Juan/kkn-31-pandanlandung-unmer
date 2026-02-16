@@ -27,6 +27,12 @@ const HeroCarousel = () => {
     setCurrent(index);
   };
 
+  const highlights = [
+    "Konservasi Sumber Air",
+    "Edukasi Lingkungan",
+    "Kolaborasi Bersama Masyarakat",
+  ];
+
   return (
     <div className="relative w-full">
       {/* Wrapper */}
@@ -36,12 +42,20 @@ const HeroCarousel = () => {
           style={{ transform: `translateX(-${current * 100}%)` }}
         >
           {carousel_images.map((img, index) => (
-            <img
-              key={index}
-              src={img}
-              alt={`Slide ${index + 1}`}
-              className="w-full shrink-0 object-cover"
-            />
+            <div key={index} className="relative w-full shrink-0 group">
+              <img
+                src={img}
+                alt={`Slide ${index + 1}`}
+                className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+              />
+
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                <h3 className="text-white text-2xl md:text-4xl font-semibold text-center px-6">
+                  {highlights[index]}
+                </h3>
+              </div>
+            </div>
           ))}
         </div>
       </div>
