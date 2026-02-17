@@ -60,7 +60,7 @@
   animation: rotate 3s linear infinite;
 }
 html:not(.dark) .rainbow::before {
-    background-image: linear-gradient(var(--color-primary));
+  background-image: linear-gradient(var(--color-primary));
 }
 
 @keyframes marqueeScroll {
