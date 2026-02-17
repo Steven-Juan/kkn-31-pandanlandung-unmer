@@ -14,7 +14,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, setTheme }) => {
     { label: "Beranda", href: "#home" },
     { label: "Tentang Kami", href: "#about" },
     { label: "Struktur Tim", href: "#team" },
-    { label: "Program Kerja", href: "#program" },
+    { label: "Program Kerja", href: "#program-kerja" },
     { label: "Dokumentasi", href: "#gallery" },
     { label: "Kontak", href: "#contact" },
   ];

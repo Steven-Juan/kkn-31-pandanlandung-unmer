@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { carousel_images } from "../assets";
+import { carousel_data } from "../assets";
 
 const HeroCarousel = () => {
   const [current, setCurrent] = useState<number>(0);
@@ -7,31 +7,23 @@ const HeroCarousel = () => {
   // Autoplay
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) =>
-        prev === carousel_images.length - 1 ? 0 : prev + 1,
-      );
+      setCurrent((prev) => (prev === carousel_data.length - 1 ? 0 : prev + 1));
     }, 4000);
 
     return () => clearInterval(interval);
   }, []);
 
   const nextSlide = () => {
-    setCurrent((prev) => (prev === carousel_images.length - 1 ? 0 : prev + 1));
+    setCurrent((prev) => (prev === carousel_data.length - 1 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setCurrent((prev) => (prev === 0 ? carousel_images.length - 1 : prev - 1));
+    setCurrent((prev) => (prev === 0 ? carousel_data.length - 1 : prev - 1));
   };
 
   const goToSlide = (index: number) => {
     setCurrent(index);
   };
-
-  const highlights = [
-    "Konservasi Sumber Air",
-    "Edukasi Lingkungan",
-    "Kolaborasi Bersama Masyarakat",
-  ];
 
   return (
     <div className="relative w-full">
@@ -41,18 +33,18 @@ const HeroCarousel = () => {
           className="flex h-full transition-transform duration-700 ease-in-out"
           style={{ transform: `translateX(-${current * 100}%)` }}
         >
-          {carousel_images.map((img, index) => (
+          {carousel_data.map((item, index) => (
             <div key={index} className="relative w-full shrink-0 group">
               <img
-                src={img}
-                alt={`Slide ${index + 1}`}
+                src={item.image}
+                alt={item.title}
                 className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
               />
 
               {/* Overlay */}
               <div className="absolute inset-0 bg-black/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
                 <h3 className="text-white text-2xl md:text-4xl font-semibold text-center px-6">
-                  {highlights[index]}
+                  {item.title}
                 </h3>
               </div>
             </div>
@@ -62,7 +54,7 @@ const HeroCarousel = () => {
 
       {/* Indicators */}
       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-3 z-20">
-        {carousel_images.map((_, index) => (
+        {carousel_data.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
