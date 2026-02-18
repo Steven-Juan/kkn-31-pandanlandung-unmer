@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
 import ProgramKerja from "./components/ProgramKerja";
+import Teams from "./components/Teams";
 
 function App() {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
@@ -12,11 +13,12 @@ function App() {
   });
 
   return (
-    <div className="relative bg-surface dark:bg-primary min-h-screen">
+    <div className="relative bg-surface dark:bg-primary min-h-screen ">
       <Navbar theme={theme} setTheme={setTheme} />
       <Hero theme={theme} setTheme={setTheme} />
       <About />
-      <ProgramKerja theme={theme} />
+      <Teams theme={theme} />
+      <ProgramKerja />
     </div>
   );
 }

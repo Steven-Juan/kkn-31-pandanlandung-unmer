@@ -1,22 +1,9 @@
-import React from "react";
-import assets from "../assets";
 import { proker_data } from "../assets";
 import Title from "./Title";
 
-type ProgramKerjaProps = {
-  theme: "light" | "dark";
-};
-
-const ProgramKerja: React.FC<ProgramKerjaProps> = ({ theme }) => {
+const ProgramKerja = () => {
   return (
     <div className="relative isolate overflow-hidden text-primary dark:text-text-invert">
-      {/* BACKGROUND */}
-      <img
-        src={theme === "dark" ? assets.background : assets.backgroundlight}
-        alt="Background"
-        className="absolute inset-0 w-full h-full object-cover object-center -z-10 opacity-30 blur-[10px]"
-      />
-
       <section id="program-kerja" className="py-24 px-6 sm:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto space-y-16">
           <Title

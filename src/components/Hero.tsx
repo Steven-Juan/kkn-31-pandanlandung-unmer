@@ -10,7 +10,10 @@ type HeroProps = {
 
 const Hero: React.FC<HeroProps> = ({ theme }) => {
   return (
-    <div className="relative isolate min-h-screen overflow-hidden text-primary dark:text-text-invert">
+    <div
+      id="home"
+      className="relative isolate min-h-screen overflow-hidden text-primary dark:text-text-invert"
+    >
       {/* BACKGROUND*/}
       <img
         src={theme === "dark" ? assets.background : assets.backgroundlight}
@@ -19,10 +22,7 @@ const Hero: React.FC<HeroProps> = ({ theme }) => {
       />
 
       {/* HERO CONTAINER */}
-      <section
-        id="home"
-        className="flex flex-col items-center gap-4 py-10 px-4 sm:px-12 lg:px-24 xl:px-40 text-center w-full"
-      >
+      <section className="flex flex-col items-center gap-4 py-10 px-4 sm:px-12 lg:px-24 xl:px-40 text-center w-full">
         {/* Badge */}
         <div className="rainbow relative z-0 bg-white/15 overflow-hidden p-px inline-flex items-center justify-center rounded-full transition duration-300">
           <div className="flex items-center gap-3 px-4 py-2 text-xs font-medium rounded-full bg-surface/80 dark:bg-primary/80 backdrop-blur">
