@@ -65,7 +65,7 @@ const Hero: React.FC<HeroProps> = ({ theme }) => {
           >
             Lihat Program Kerja
           </a>
-          <button className="bg-primary dark:bg-surface text-text-invert dark:text-text-primary px-8 h-12 rounded-md hover:bg-accent/90 transition flex items-center justify-center gap-2">
+          <button className="bg-primary dark:bg-surface text-text-invert dark:text-text-primary px-8 h-12 rounded-md hover:bg-accent/70 dark:hover:bg-accent/30 hover:text-primary dark:hover:text-text-invert  transition flex items-center justify-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

@@ -29,7 +29,7 @@ const Footer = () => {
             className="hover:opacity-70 transition"
           >
             <img
-              src={assets.instagram_icon}
+              src={assets.instagram_icon_svg}
               alt="Instagram"
               className="w-5 h-5"
             />

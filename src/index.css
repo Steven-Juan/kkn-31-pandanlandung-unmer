@@ -2,6 +2,7 @@
 
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
 @theme {
   /* Brand */
   --color-primary: #3e2522;
@@ -22,8 +23,6 @@
     Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @layer base {
   html {
     font-family: var(--font-sans);
@@ -35,6 +34,7 @@
     color: var(--color-text-invert);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    cursor: none;
   }
 }
 

@@ -18,6 +18,7 @@ import lppm_logo from "./logos/lppm_logo.png";
 import unmer_exceed from "./logos/unmer_exceed.png";
 import unmer_brand from "./logos/unmer_brand.png";
 import instagram_icon from "./icons/instagram_icon.png";
+import instagram_icon_svg from "./icons/instagram_icon.svg";
 
 const assets = {
   logo_kkn,
@@ -32,6 +33,7 @@ const assets = {
   moon_icon,
   hero_img,
   instagram_icon,
+  instagram_icon_svg,
 };
 
 export const company_logos = [
