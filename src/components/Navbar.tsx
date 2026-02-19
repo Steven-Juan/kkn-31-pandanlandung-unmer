@@ -11,12 +11,12 @@ const Navbar: React.FC<NavbarProps> = ({ theme, setTheme }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const navItems = [
-    { label: "Beranda", href: "#home" },
+    { label: "Beranda", href: "#" },
     { label: "Tentang Kami", href: "#about" },
     { label: "Struktur Tim", href: "#team" },
     { label: "Program Kerja", href: "#program-kerja" },
-    { label: "Dokumentasi", href: "#gallery" },
-    { label: "Kontak", href: "#contact" },
+    { label: "Dokumentasi", href: "#dokumentasi" },
+    { label: "Publikasi & Luaran", href: "#publikasi" },
   ];
 
   return (

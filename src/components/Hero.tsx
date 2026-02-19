@@ -11,7 +11,7 @@ type HeroProps = {
 const Hero: React.FC<HeroProps> = ({ theme }) => {
   return (
     <div
-      id="home"
+      id="#"
       className="relative isolate min-h-screen overflow-hidden text-primary dark:text-text-invert"
     >
       {/* BACKGROUND*/}

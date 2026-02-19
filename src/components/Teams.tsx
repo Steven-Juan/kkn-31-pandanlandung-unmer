@@ -25,12 +25,13 @@ const Teams: React.FC<TeamsProps> = ({ theme }) => {
         />
 
         {/* ===== LEADER ===== */}
-        <div className="w-full flex justify-center ">
+        <div className="w-full flex justify-center">
           {teamData.slice(0, 1).map((team, index) => (
             <div
               key={index}
-              className="flex flex-col items-center gap-4 p-6 rounded-2xl
+              className="group flex flex-col items-center gap-4 p-6 rounded-2xl
                         bg-surface dark:bg-primary
+                        hover:bg-primary dark:hover:bg-surface
                         border border-secondary/40 dark:border-secondary/40
                         shadow-xl
                         transition-all duration-300
@@ -44,8 +45,17 @@ const Teams: React.FC<TeamsProps> = ({ theme }) => {
               />
 
               <div className="text-center">
-                <h3 className="font-bold text-base">{team.name}</h3>
-                <p className="text-sm font-medium opacity-80 mt-1">
+                <h3
+                  className="font-bold text-base text-text-primary dark:text-text-invert
+               group-hover:text-text-invert dark:group-hover:text-text-primary"
+                >
+                  {team.name}
+                </h3>
+                <p
+                  className="text-sm font-medium opacity-80 mt-1
+              text-text-primary dark:text-text-invert
+              group-hover:text-text-invert dark:group-hover:text-text-primary"
+                >
                   {team.division}
                 </p>
                 <a
@@ -53,7 +63,8 @@ const Teams: React.FC<TeamsProps> = ({ theme }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 mt-3
-                            text-black dark:text-text-invert
+                            text-text-primary dark:text-text-invert
+                            group-hover:text-text-invert dark:group-hover:text-text-primary
                             opacity-80 hover:opacity-100
                             text-xs font-light transition"
                 >
@@ -74,8 +85,9 @@ const Teams: React.FC<TeamsProps> = ({ theme }) => {
           {teamData.slice(1).map((team, index) => (
             <div
               key={index}
-              className="flex flex-col items-center gap-4 p-6 rounded-2xl
+              className="group flex flex-col items-center gap-4 p-6 rounded-2xl
                         bg-surface dark:bg-primary
+                        hover:bg-primary dark:hover:bg-surface
                         border border-secondary/40 dark:border-secondary/40
                         shadow-lg
                         transition-all duration-300
@@ -88,8 +100,17 @@ const Teams: React.FC<TeamsProps> = ({ theme }) => {
               />
 
               <div className="text-center">
-                <h3 className="font-bold text-sm">{team.name}</h3>
-                <p className="text-xs font-medium opacity-80 mt-1">
+                <h3
+                  className="font-bold text-sm text-text-primary dark:text-text-invert
+               group-hover:text-text-invert dark:group-hover:text-text-primary"
+                >
+                  {team.name}
+                </h3>
+                <p
+                  className="text-xs font-medium opacity-80 mt-1
+              text-text-primary dark:text-text-invert
+              group-hover:text-text-invert dark:group-hover:text-text-primary"
+                >
                   {team.division}
                 </p>
                 <a
@@ -97,7 +118,8 @@ const Teams: React.FC<TeamsProps> = ({ theme }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 mt-3
-                            text-black dark:text-text-invert
+                            text-text-primary dark:text-text-invert
+                            group-hover:text-text-invert dark:group-hover:text-text-primary
                             opacity-80 hover:opacity-100
                             text-xs font-light transition"
                 >

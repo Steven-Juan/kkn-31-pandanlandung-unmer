@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import About from "./components/About";
 import ProgramKerja from "./components/ProgramKerja";
 import Teams from "./components/Teams";
+import Footer from "./components/Footer";
 
 function App() {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
@@ -19,6 +20,7 @@ function App() {
       <About />
       <Teams theme={theme} />
       <ProgramKerja />
+      <Footer />
     </div>
   );
 }
