@@ -1,8 +1,13 @@
 import Title from "./Title";
+import { motion } from "motion/react";
 
 const About = () => {
   return (
-    <section
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      transition={{ staggerChildren: 0.2 }}
+      viewport={{ once: true }}
       id="about"
       className="relative py-24 px-6 sm:px-12 lg:px-24 overflow-hidden"
     >
@@ -13,7 +18,13 @@ const About = () => {
         />
 
         {/* ================= CARD GRID ================= */}
-        <div className="grid md:grid-cols-2 gap-6 items-stretch">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 gap-6 items-stretch"
+        >
           {/* ===== VISI CARD ===== */}
           <div className="relative group rounded-3xl p-0.5 h-full">
             {/* BORDER EFFECT */}
@@ -92,9 +103,9 @@ const About = () => {
               </ul>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.div>
   );
 };
 

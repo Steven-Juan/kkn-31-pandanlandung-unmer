@@ -1,6 +1,7 @@
 import React from "react";
 import Title from "./Title";
 import assets, { teamData } from "../assets";
+import { motion } from "motion/react";
 
 type TeamsProps = {
   theme: "light" | "dark";
@@ -9,13 +10,15 @@ type TeamsProps = {
 const Teams: React.FC<TeamsProps> = ({ theme }) => {
   return (
     <div className="relative isolate overflow-hidden">
-      {/* BACKGROUND PINDAH KE SINI */}
       <img
         src={theme === "dark" ? assets.background : assets.backgroundlight}
         alt="Background"
         className="absolute inset-0 w-full h-full object-cover object-center -z-10 opacity-30 blur-[10px]"
       />
-      <section
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
         id="team"
         className="flex flex-col items-center gap-10 px-6 sm:px-12 lg:px-24 py-24 text-primary dark:text-text-invert"
       >
@@ -27,7 +30,11 @@ const Teams: React.FC<TeamsProps> = ({ theme }) => {
         {/* ===== LEADER ===== */}
         <div className="w-full flex justify-center">
           {teamData.slice(0, 1).map((team, index) => (
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true }}
               key={index}
               className="group flex flex-col items-center gap-4 p-6 rounded-2xl
                         bg-surface dark:bg-primary
@@ -76,14 +83,18 @@ const Teams: React.FC<TeamsProps> = ({ theme }) => {
                   @{team.instagram}
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* ===== GRID MEMBERS ===== */}
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 w-full max-w-6xl">
           {teamData.slice(1).map((team, index) => (
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true }}
               key={index}
               className="group flex flex-col items-center gap-4 p-6 rounded-2xl
                         bg-surface dark:bg-primary
@@ -131,10 +142,10 @@ const Teams: React.FC<TeamsProps> = ({ theme }) => {
                   @{team.instagram}
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </section>
+      </motion.div>
     </div>
   );
 };

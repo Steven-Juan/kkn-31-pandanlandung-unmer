@@ -1,17 +1,32 @@
 import React from "react";
 import { company_logos } from "../assets";
+import { motion } from "motion/react";
 
 const LogoDisplay: React.FC = () => {
   return (
-    <section className="w-full py-16 overflow-hidden select-none relative">
-      {/* Left Gradient */}
-      <div className="absolute left-0 top-0 h-full" />
-
+    <motion.section
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="w-full py-16 overflow-hidden select-none relative"
+    >
       {/* Marquee Container */}
-      <div className="flex w-max animate-marquee">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        transition={{ staggerChildren: 0.1 }}
+        viewport={{ once: true }}
+        className="flex w-max animate-marquee"
+      >
         {[...company_logos, ...company_logos].map(
           (logo: string, index: number) => (
-            <img
+            <motion.img
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.4 }}
               key={index}
               src={logo}
               alt="Company Logo"
@@ -24,11 +39,8 @@ const LogoDisplay: React.FC = () => {
             />
           ),
         )}
-      </div>
-
-      {/* Right linear */}
-      <div className="absolute right-0 top-0 h-full" />
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 

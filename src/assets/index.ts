@@ -18,7 +18,14 @@ import lppm_logo from "./logos/lppm_logo.png";
 import unmer_exceed from "./logos/unmer_exceed.png";
 import unmer_brand from "./logos/unmer_brand.png";
 import instagram_icon from "./icons/instagram_icon.png";
-import instagram_icon_svg from "./icons/instagram_icon.svg";
+import instagram_icon_footer from "./icons/instagram.png";
+import instagram_icon_footer_dark from "./icons/instagram_dark.png";
+import tiktok_icon from "./icons/tiktok_icon.svg";
+import tiktok_icon_dark from "./icons/tiktok_icon_dark.png";
+import blogger_icon from "./icons/blogger.png";
+import blogger_icon_dark from "./icons/blogger_dark.png";
+import logo_kkn_simple from "./logos/logo_kkn_simple.png";
+import video_music from "./videos/guilty as sin_ x about you (remix).mp4";
 
 const assets = {
   logo_kkn,
@@ -31,9 +38,16 @@ const assets = {
   close_icon,
   sun_icon,
   moon_icon,
+  blogger_icon,
+  blogger_icon_dark,
   hero_img,
   instagram_icon,
-  instagram_icon_svg,
+  instagram_icon_footer,
+  instagram_icon_footer_dark,
+  tiktok_icon,
+  tiktok_icon_dark,
+  logo_kkn_simple,
+  video_music,
 };
 
 export const company_logos = [

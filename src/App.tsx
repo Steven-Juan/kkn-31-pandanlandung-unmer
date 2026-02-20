@@ -52,13 +52,13 @@ function App() {
   }, []);
 
   return (
-    <div className="relative bg-surface dark:bg-primary min-h-screen ">
+    <div className="relative bg-surface dark:bg-primary">
       <Navbar theme={theme} setTheme={setTheme} />
       <Hero theme={theme} setTheme={setTheme} />
       <About />
       <Teams theme={theme} />
       <ProgramKerja />
-      <Footer />
+      <Footer theme={theme} />
       {/* Custom Cursor Ring */}
       <div
         ref={outlineRef}

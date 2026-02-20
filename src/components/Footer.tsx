@@ -1,64 +1,114 @@
 import React from "react";
 import assets from "../assets";
+import { motion } from "motion/react";
 
-const Footer = () => {
+type FooterProps = {
+  theme: "light" | "dark";
+};
+
+const Footer: React.FC<FooterProps> = ({ theme }) => {
   return (
-    <footer className="mt-20 border-t border-primary/20 dark:border-surface/20">
-      <div className="backdrop-blur-xl bg-surface/50 dark:bg-primary/70 py-16 text-center px-6 sm:px-12 lg:px-24 xl:px-40">
-        {/* Logo */}
-        <div className="flex justify-center mb-6">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="mt-20 border-t border-primary/20 dark:border-surface/20 dark:bg-yellow-950/70 bg-white/50 py-16 text-center px-6 sm:px-12 lg:px-24 xl:px-40"
+    >
+      {/* Logo + Text */}
+      <motion.div
+        initial={{ opacity: 0, y: -15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="flex justify-center mb-6"
+      >
+        <div className="flex items-center gap-4">
           <img
-            src={assets.logo_kkn}
+            src={assets.logo_kkn_simple}
             alt="Logo KKN 31"
             className="w-auto h-16"
           />
+
+          <div className="text-left">
+            <h3 className="text-lg sm:text-xl font-semibold text-primary dark:text-text-invert leading-tight">
+              KKN 31 Pandanlandung
+            </h3>
+            <p className="text-sm opacity-70 text-primary dark:text-text-invert">
+              Universitas Merdeka Malang
+            </p>
+          </div>
         </div>
+      </motion.div>
 
-        {/* Copyright */}
-        <p className="text-sm sm:text-base text-primary dark:text-text-invert opacity-80 mb-6">
-          Copyright © 2025 KKN 31 Universitas Merdeka Malang. All rights
-          reserved.
-        </p>
+      {/* Copyright */}
+      <motion.p
+        initial={{ opacity: 0, y: -10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        viewport={{ once: true }}
+        className="text-sm sm:text-base text-primary dark:text-text-invert opacity-80 mb-6"
+      >
+        Copyright © 2026 KKN 31 Pandanlandung Universitas Merdeka Malang. All
+        rights reserved.
+      </motion.p>
 
-        {/* Social Links */}
-        <div className="flex justify-center items-center gap-6">
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:opacity-70 transition"
-          >
-            <img
-              src={assets.instagram_icon_svg}
-              alt="Instagram"
-              className="w-5 h-5"
-            />
-          </a>
+      {/* Social Links */}
+      <motion.div
+        initial={{ opacity: 0, y: -5 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+        viewport={{ once: true }}
+        className="flex justify-center items-center gap-6"
+      >
+        <a
+          href="https://www.instagram.com/kkn31.pandanlandung/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:opacity-70 transition"
+        >
+          <img
+            src={
+              theme === "dark"
+                ? assets.instagram_icon_footer_dark
+                : assets.instagram_icon_footer
+            }
+            alt="Instagram"
+            className="w-5 h-5"
+          />
+        </a>
 
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:opacity-70 transition"
-          >
-            <img src={assets.tiktok_icon} alt="TikTok" className="w-5 h-5" />
-          </a>
+        <a
+          href="https://www.tiktok.com/@kkn31.pandanlandung"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:opacity-70 transition"
+        >
+          <img
+            src={
+              theme === "dark" ? assets.tiktok_icon_dark : assets.tiktok_icon
+            }
+            alt="TikTok"
+            className="w-5 h-5"
+          />
+        </a>
 
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:opacity-70 transition"
-          >
-            <img
-              src={assets.blogspot_icon}
-              alt="Blogspot"
-              className="w-5 h-5"
-            />
-          </a>
-        </div>
-      </div>
-    </footer>
+        <a
+          href="https://kkn31pandanlandungunmer2026.blogspot.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:opacity-70 transition"
+        >
+          <img
+            src={
+              theme === "dark" ? assets.blogger_icon_dark : assets.blogger_icon
+            }
+            alt="Blogspot"
+            className="w-5 h-5"
+          />
+        </a>
+      </motion.div>
+    </motion.div>
   );
 };
 
