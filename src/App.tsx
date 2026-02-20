@@ -6,6 +6,7 @@ import About from "./components/About";
 import ProgramKerja from "./components/ProgramKerja";
 import Teams from "./components/Teams";
 import Footer from "./components/Footer";
+import Dokumentasi from "./components/Dokumentasi";
 
 function App() {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
@@ -50,14 +51,20 @@ function App() {
       document.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className="relative bg-surface dark:bg-primary">
-      <Navbar theme={theme} setTheme={setTheme} />
-      <Hero theme={theme} setTheme={setTheme} />
+      <Navbar theme={theme} setTheme={setTheme} hide={isModalOpen} />
+      <Hero
+        theme={theme}
+        setTheme={setTheme}
+        setGlobalModalOpen={setIsModalOpen}
+      />
       <About />
       <Teams theme={theme} />
       <ProgramKerja />
+      <Dokumentasi theme={theme} setGlobalModalOpen={setIsModalOpen} />
       <Footer theme={theme} />
       {/* Custom Cursor Ring */}
       <div

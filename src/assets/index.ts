@@ -27,6 +27,10 @@ import blogger_icon_dark from "./icons/blogger_dark.png";
 import logo_kkn_simple from "./logos/logo_kkn_simple.png";
 import video_music from "./videos/guilty as sin_ x about you (remix).mp4";
 
+export type GalleryItem =
+  | { type: "image"; src: string; title?: string }
+  | { type: "video"; src: string; title?: string };
+
 const assets = {
   logo_kkn,
   background,
@@ -48,6 +52,10 @@ const assets = {
   tiktok_icon_dark,
   logo_kkn_simple,
   video_music,
+  carousel_1,
+  carousel_2,
+  carousel_3,
+  carousel_4,
 };
 
 export const company_logos = [
@@ -119,6 +127,34 @@ export const proker_data: ProkerItem[] = [
     description:
       "Pembuatan tempat sampah pilah dari kaleng cat bekas dan rangka kayu untuk memudahkan masyarakat menjaga kebersihan area sumber air.",
     image: carousel_2,
+  },
+];
+
+export const dokumentasi_data: GalleryItem[] = [
+  { type: "image", src: carousel_1, title: "Konservasi Sumber Air" },
+  { type: "image", src: carousel_2, title: "Kerja Bakti" },
+  { type: "image", src: carousel_3, title: "Perbaikan Akses" },
+  { type: "image", src: carousel_4, title: "Pemasangan Gapura" },
+
+  { type: "image", src: carousel_1 },
+  { type: "image", src: carousel_2 },
+  { type: "image", src: carousel_3 },
+  { type: "image", src: carousel_4 },
+
+  { type: "image", src: carousel_1 },
+  { type: "image", src: carousel_2 },
+  { type: "image", src: carousel_3 },
+  { type: "image", src: carousel_4 },
+
+  { type: "image", src: carousel_1 },
+  { type: "image", src: carousel_2 },
+  { type: "image", src: carousel_3 },
+  { type: "image", src: carousel_4 },
+
+  {
+    type: "video",
+    src: video_music,
+    title: "After Movie KKN 31",
   },
 ];
 

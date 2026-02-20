@@ -6,10 +6,12 @@ import { motion } from "motion/react";
 type NavbarProps = {
   theme: "light" | "dark";
   setTheme: Dispatch<SetStateAction<"light" | "dark">>;
+  hide?: boolean;
 };
 
-const Navbar: React.FC<NavbarProps> = ({ theme, setTheme }) => {
+const Navbar: React.FC<NavbarProps> = ({ theme, setTheme, hide }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  if (hide) return null;
 
   const navItems = [
     { label: "Beranda", href: "#" },

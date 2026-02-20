@@ -7,18 +7,21 @@ import { motion } from "motion/react";
 type HeroProps = {
   theme: "light" | "dark";
   setTheme: Dispatch<SetStateAction<"light" | "dark">>;
+  setGlobalModalOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-const Hero: React.FC<HeroProps> = ({ theme }) => {
+const Hero: React.FC<HeroProps> = ({ theme, setGlobalModalOpen }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [open, setOpen] = React.useState(false);
 
   const openModal = () => {
     setOpen(true);
+    setGlobalModalOpen(true);
   };
 
   const closeModal = () => {
     setOpen(false);
+    setGlobalModalOpen(false);
 
     if (videoRef.current) {
       videoRef.current.pause();
