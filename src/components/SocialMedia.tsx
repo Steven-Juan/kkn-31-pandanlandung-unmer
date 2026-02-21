@@ -12,14 +12,14 @@ const SocialMedia: React.FC = () => {
       whileInView="visible"
       transition={{ staggerChildren: 0.2 }}
       viewport={{ once: true }}
-      className="px-6 max-w-6xl mx-auto py-20 scroll-mt-10"
+      className="px-6 max-w-6xl mx-auto py-20 scroll-mt-5"
     >
       <Title
         title="Social Media"
         desc="Ikuti kegiatan terbaru KKN 31 melalui Instagram dan TikTok kami."
       />
 
-      <div className="mt-16 space-y-20">
+      <div className="mt-6 space-y-10">
         <motion.h3
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}

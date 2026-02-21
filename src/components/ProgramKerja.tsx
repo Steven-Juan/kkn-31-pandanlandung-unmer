@@ -10,7 +10,7 @@ const ProgramKerja = () => {
       transition={{ staggerChildren: 0.2 }}
       viewport={{ once: true }}
       id="program-kerja"
-      className="relative isolate overflow-hidden py-24 px-6 sm:px-12 lg:px-24 text-primary dark:text-text-invert"
+      className="scroll-mt-10 relative isolate overflow-hidden py-24 px-6 sm:px-12 lg:px-24 text-primary dark:text-text-invert"
     >
       <div className="max-w-7xl mx-auto space-y-16">
         <Title

@@ -6,8 +6,8 @@ import ProgramKerja from "./components/ProgramKerja";
 import Teams from "./components/Teams";
 import Footer from "./components/Footer";
 import Dokumentasi from "./components/Dokumentasi";
-import Publikasi from "./components/Publikasi";
 import SocialMedia from "./components/SocialMedia";
+import Luaran from "./components/Luaran";
 
 function App() {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
@@ -67,7 +67,7 @@ function App() {
       <ProgramKerja />
       <Dokumentasi theme={theme} setGlobalModalOpen={setIsModalOpen} />
       <SocialMedia />
-      <Publikasi />
+      <Luaran theme={theme} />
       <Footer theme={theme} />
       {/* Custom Cursor Ring */}
       <div

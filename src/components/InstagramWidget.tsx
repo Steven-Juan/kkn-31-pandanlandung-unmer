@@ -37,7 +37,7 @@ const InstagramWidget = () => {
       viewport={{ once: true }}
       className="w-full max-w-275 mx-auto bg-[#1a1a1a] text-white rounded-3xl overflow-hidden shadow-2xl font-sans"
     >
-      <div className="flex flex-wrap items-center justify-center py-6 px-10 bg-[#1a1a1a] gap-20">
+      <div className="flex flex-col md:flex-row items-center justify-between py-6 px-6 md:px-10 bg-[#1a1a1a] gap-8 md:gap-10">
         {/* Sisi Kiri: Foto Profil & Nama */}
         <a
           href="https://www.instagram.com/kkn31.pandanlandung/"
@@ -67,7 +67,7 @@ const InstagramWidget = () => {
 
         {/* Sisi Kanan: Statistik & Tombol Follow */}
         <div className="flex items-center gap-10">
-          <div className="flex gap-2 text-[14px]">
+          <div className="flex gap-4 md:gap-8 text-[13px] md:text-[14px]">
             <div className="text-center">
               <span className="font-bold block">36</span>
               <span className="text-[12px] text-neutral-400 tracking-wider">
@@ -105,8 +105,8 @@ const InstagramWidget = () => {
       </div>
 
       {/* BODY / FEED */}
-      <div className="px-10 py-8 bg-black/10">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div className="px-3 md:px-8 py-6 bg-black/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {posts.map((post, i) => (
             <a
               key={i}
@@ -125,7 +125,7 @@ const InstagramWidget = () => {
               <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
 
               {/* 2. Container Teks dengan overflow-hidden yang lebih ketat */}
-              <div className="absolute inset-0 z-20 overflow-hidden flex items-center justify-center">
+              <div className="absolute inset-0 z-10 overflow-hidden flex items-center justify-center">
                 <div className="p-6 w-full h-full flex items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
                   <p className="text-[13px] text-white font-medium leading-relaxed text-center line-clamp-5">
                     {post.caption}

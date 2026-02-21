@@ -33,7 +33,7 @@ const TiktokWidget = () => {
       className="w-full max-w-275 mx-auto bg-[#1a1a1a] text-white rounded-3xl overflow-hidden shadow-2xl font-sans border border-white/10"
     >
       {/* HEADER */}
-      <div className="flex flex-wrap items-center justify-between py-6 px-10 bg-[#1a1a1a]">
+      <div className="flex flex-col md:flex-row items-center justify-between py-4 px-4 md:px-8 bg-[#1a1a1a] gap-6">
         {/* Sisi Kiri: Profil */}
         <a
           href={TIKTOK_URL}
@@ -50,7 +50,7 @@ const TiktokWidget = () => {
             <h3 className="font-bold text-[18px] tracking-tight leading-tight group-hover/profile:underline">
               KKN 31 Pandanlandung
             </h3>
-            <div className="flex gap-3 text-[14px] mt-1">
+            <div className="flex gap-3 md:gap-8 text-[13px] md:text-[14px] mt-1">
               <p>
                 <span className="font-bold">2.1k</span>{" "}
                 <span className="text-neutral-400">Likes</span>
@@ -68,7 +68,6 @@ const TiktokWidget = () => {
               🏠 Universitas Merdeka Malang 📍 Ds. Pandanlandung, Kec Wagir,
               Kab. Malang
             </p>
-            <p className="text-neutral-400 text-[13px]">#kisahpandanlandung</p>
           </div>
         </a>
 
@@ -85,8 +84,8 @@ const TiktokWidget = () => {
       </div>
 
       {/* BODY / VIDEO GRID */}
-      <div className="px-10 py-8 bg-black">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <div className="px-3 md:px-8 py-6 bg-black/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {videos.map((video, i) => (
             <a
               key={i}
