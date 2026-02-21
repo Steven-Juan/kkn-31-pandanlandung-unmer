@@ -26,6 +26,12 @@ import blogger_icon from "./icons/blogger.png";
 import blogger_icon_dark from "./icons/blogger_dark.png";
 import logo_kkn_simple from "./logos/logo_kkn_simple.png";
 import video_music from "./videos/guilty as sin_ x about you (remix).mp4";
+import post_ig_day16 from "./images/post_ig_day16.jpg";
+import post_ig_day17 from "./images/post_ig_day17.jpg";
+import post_ig_day18 from "./images/post_ig_day18.jpg";
+import thumb_tiktok1 from "./images/thumb_tiktok1.png";
+import thumb_tiktok2 from "./images/thumb_tiktok2.png";
+import thumb_tiktok3 from "./images/thumb_tiktok3.png";
 
 export type GalleryItem =
   | { type: "image"; src: string; title?: string }
@@ -56,6 +62,12 @@ const assets = {
   carousel_2,
   carousel_3,
   carousel_4,
+  post_ig_day16,
+  post_ig_day17,
+  post_ig_day18,
+  thumb_tiktok1,
+  thumb_tiktok2,
+  thumb_tiktok3,
 };
 
 export const company_logos = [

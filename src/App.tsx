@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useRef, useEffect } from "react";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
@@ -7,6 +6,8 @@ import ProgramKerja from "./components/ProgramKerja";
 import Teams from "./components/Teams";
 import Footer from "./components/Footer";
 import Dokumentasi from "./components/Dokumentasi";
+import Publikasi from "./components/Publikasi";
+import SocialMedia from "./components/SocialMedia";
 
 function App() {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
@@ -65,6 +66,8 @@ function App() {
       <Teams theme={theme} />
       <ProgramKerja />
       <Dokumentasi theme={theme} setGlobalModalOpen={setIsModalOpen} />
+      <SocialMedia />
+      <Publikasi />
       <Footer theme={theme} />
       {/* Custom Cursor Ring */}
       <div

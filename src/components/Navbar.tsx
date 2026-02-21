@@ -19,7 +19,8 @@ const Navbar: React.FC<NavbarProps> = ({ theme, setTheme, hide }) => {
     { label: "Struktur Tim", href: "#team" },
     { label: "Program Kerja", href: "#program-kerja" },
     { label: "Dokumentasi", href: "#dokumentasi" },
-    { label: "Publikasi & Luaran", href: "#publikasi" },
+    { label: "Social Media", href: "#social-media" },
+    { label: "Luaran", href: "#luaran" },
   ];
 
   return (
@@ -75,14 +76,6 @@ const Navbar: React.FC<NavbarProps> = ({ theme, setTheme, hide }) => {
           className="w-8 sm:hidden cursor-pointer"
           onClick={() => setSidebarOpen(true)}
         />
-
-        <a
-          href="#contact-us"
-          className="text-sm max-sm:hidden flex items-center gap-2 bg-primary dark:bg-surface text-text-invert dark:text-primary px-6 py-2 rounded-full cursor-pointer hover:scale-105 transition-all"
-        >
-          Connect
-          <assets.ArrowIcon className="w-4 h-4" />
-        </a>
       </div>
     </motion.div>
   );

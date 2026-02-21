@@ -1,0 +1,48 @@
+import React from "react";
+import Title from "./Title";
+import InstagramWidget from "./InstagramWidget";
+import TiktokWidget from "./TiktokWidget";
+import { motion } from "motion/react";
+
+const SocialMedia: React.FC = () => {
+  return (
+    <motion.div
+      id="social-media"
+      initial="hidden"
+      whileInView="visible"
+      transition={{ staggerChildren: 0.2 }}
+      viewport={{ once: true }}
+      className="px-6 max-w-6xl mx-auto py-20 scroll-mt-10"
+    >
+      <Title
+        title="Social Media"
+        desc="Ikuti kegiatan terbaru KKN 31 melalui Instagram dan TikTok kami."
+      />
+
+      <div className="mt-16 space-y-20">
+        <motion.h3
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-2xl font-semibold mb-6 text-primary dark:text-text-invert"
+        >
+          Instagram
+        </motion.h3>
+        <InstagramWidget />
+        <motion.h3
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-2xl font-semibold mb-6 text-primary dark:text-text-invert"
+        >
+          Tiktok
+        </motion.h3>
+        <TiktokWidget />
+      </div>
+    </motion.div>
+  );
+};
+
+export default SocialMedia;
