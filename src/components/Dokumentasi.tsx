@@ -124,7 +124,7 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
 
         {/* PAGINATION */}
         <div className=" flex items-center justify-between border-t border-white/10 mt-4 pt-4">
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-800 dark:text-gray-400">
             Showing <span className="font-medium">{startIndex + 1}</span> to{" "}
             <span className="font-medium">
               {Math.min(startIndex + ITEMS_PER_PAGE, totalItems)}
@@ -136,7 +136,7 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
             <button
               disabled={currentPage === 1}
               onClick={() => setCurrentPage((p) => p - 1)}
-              className="px-3 py-1 rounded-md bg-white/10 disabled:opacity-40"
+              className="px-3 py-1 rounded-md dark:bg-white/10 bg-black/30 disabled:opacity-40"
             >
               Prev
             </button>
@@ -147,8 +147,8 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
                 onClick={() => setCurrentPage(i + 1)}
                 className={`px-3 py-1 rounded-md ${
                   currentPage === i + 1
-                    ? "bg-primary text-white"
-                    : "bg-white/10"
+                    ? "dark:bg-accent bg-primary text-white"
+                    : "dark:bg-white/10 bg-black/30"
                 }`}
               >
                 {i + 1}
@@ -158,7 +158,7 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
             <button
               disabled={currentPage === totalPages}
               onClick={() => setCurrentPage((p) => p + 1)}
-              className="px-3 py-1 rounded-md bg-white/10 disabled:opacity-40"
+              className="px-3 py-1 rounded-md dark:bg-white/10 bg-black/30 disabled:opacity-40"
             >
               Next
             </button>

@@ -10,23 +10,24 @@ type LuaranProps = {
 const luaranData = [
   {
     title: "Poster Program Kerja",
-    category: "Visual Design",
+    category: "Postergrafis",
     desc: "Visualisasi program konservasi sumber air dan pengembangan potensi desa Pandanlandung.",
     image: assets.poster_luaran,
     link: "#",
   },
   {
-    title: "Artikel Ilmiah PKM-AI",
-    category: "Academic Article",
-    desc: "Dokumentasi ilmiah hasil pengabdian masyarakat mengenai efektivitas partisipasi warga dalam pelestarian lingkungan.",
-    image: assets.artikel_luaran,
-    link: "#",
+    title:
+      "KONSERVASI SUMBER AIR DAN EDUKASI LINGKUNGAN MASYARAKAT DESA PANDANLANDUNG",
+    category: "PKM-AI",
+    desc: "Studi mengenai konservasi sumber air dan edukasi lingkungan sebagai upaya pengembangan desa berkelanjutan di Desa Pandanlandung.",
+    image: assets.cover_artikel,
+    link: assets.artikel_luaran,
   },
 ];
 
 const Luaran: React.FC<LuaranProps> = ({ theme }) => {
   return (
-    <div id="luaran" className="scroll-mt-5 relative isolate overflow-hidden">
+    <div id="luaran" className="scroll-mt-10 relative isolate overflow-hidden">
       {/* Background */}
       <img
         src={theme === "dark" ? assets.background : assets.backgroundlight}
@@ -52,7 +53,7 @@ const Luaran: React.FC<LuaranProps> = ({ theme }) => {
           desc="Hasil akhir kelompok KKN 31 Pandanlandung Universitas Merdeka Malang dalam bentuk karya publikasi."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
           {luaranData.map((item, index) => (
             <motion.a
               key={index}
@@ -75,7 +76,7 @@ const Luaran: React.FC<LuaranProps> = ({ theme }) => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
               </div>
@@ -104,7 +105,7 @@ const Luaran: React.FC<LuaranProps> = ({ theme }) => {
                   {item.desc}
                 </p>
 
-                <div className="mt-6 flex items-center gap-2 text-sm font-semibold group-hover:gap-4 transition-all">
+                <div className="mt-6 flex items-center gap-2 text-sm font-semibold group-hover:gap-4 transition-all text-primary dark:text-text-invert">
                   <span>Lihat Selengkapnya</span>
                   <svg
                     className="w-4 h-4"
