@@ -3,6 +3,7 @@ import Title from "./Title";
 import InstagramWidget from "./InstagramWidget";
 import TiktokWidget from "./TiktokWidget";
 import { motion } from "motion/react";
+import BloggerWidget from "./BloggerWidget";
 
 const SocialMedia: React.FC = () => {
   return (
@@ -16,7 +17,7 @@ const SocialMedia: React.FC = () => {
     >
       <Title
         title="Social Media"
-        desc="Ikuti kegiatan terbaru KKN 31 melalui Instagram dan TikTok kami."
+        desc="Ikuti kegiatan terbaru KKN 31 melalui Instagram, TikTok, dan Blogger kami."
       />
 
       <div className="mt-6 space-y-10">
@@ -40,6 +41,16 @@ const SocialMedia: React.FC = () => {
           Tiktok
         </motion.h3>
         <TiktokWidget />
+        <motion.h3
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-2xl font-semibold mb-6 text-primary dark:text-text-invert"
+        >
+          Blogger
+        </motion.h3>
+        <BloggerWidget />
       </div>
     </motion.div>
   );

@@ -32,6 +32,9 @@ import post_ig_day18 from "./images/post_ig_day18.jpg";
 import thumb_tiktok1 from "./images/thumb_tiktok1.png";
 import thumb_tiktok2 from "./images/thumb_tiktok2.png";
 import thumb_tiktok3 from "./images/thumb_tiktok3.png";
+import thumb_blog1 from "./images/thumb_blog1.png";
+import thumb_blog2 from "./images/thumb_blog2.png";
+import thumb_blog3 from "./images/thumb_blog3.png";
 
 export type GalleryItem =
   | { type: "image"; src: string; title?: string }
@@ -68,6 +71,9 @@ const assets = {
   thumb_tiktok1,
   thumb_tiktok2,
   thumb_tiktok3,
+  thumb_blog1,
+  thumb_blog2,
+  thumb_blog3,
 };
 
 export const company_logos = [
