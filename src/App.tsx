@@ -53,6 +53,20 @@ function App() {
     };
   }, []);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [hideFooter, setHideFooter] = useState(false);
+  const [hideSocial, setHideSocial] = useState(false);
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isModalOpen]);
 
   return (
     <div className="relative bg-surface dark:bg-primary">
@@ -64,22 +78,30 @@ function App() {
       />
       <About />
       <Teams theme={theme} />
-      <ProgramKerja />
-      <Dokumentasi theme={theme} setGlobalModalOpen={setIsModalOpen} />
-      <SocialMedia />
-      <Luaran theme={theme} />
-      <Footer theme={theme} />
+      <ProgramKerja setGlobalModalOpen={setIsModalOpen} />
+      <Dokumentasi
+        theme={theme}
+        setGlobalModalOpen={setIsModalOpen}
+        setHideSocial={setHideSocial}
+      />
+      <SocialMedia hideContent={hideSocial} />
+      <Luaran
+        theme={theme}
+        setGlobalModalOpen={setIsModalOpen}
+        setHideFooter={setHideFooter}
+      />
+      {!hideFooter && <Footer theme={theme} />}
       {/* Custom Cursor Ring */}
       <div
         ref={outlineRef}
-        className="fixed top-0 left-0 h-10 w-10 rounded-full border border-secondary pointer-events-none z-9999"
+        className="fixed top-0 left-0 h-10 w-10 rounded-full border border-secondary pointer-events-none z-1000001"
         style={{ transition: "transform 0.1s ease-out" }}
       ></div>
 
       {/* Custom Cursor Dot */}
       <div
         ref={dotRef}
-        className="fixed top-0 left-0 h-3 w-3 rounded-full bg-accent pointer-events-none z-9999"
+        className="fixed top-0 left-0 h-3 w-3 rounded-full bg-accent pointer-events-none z-1000001"
       ></div>
     </div>
   );

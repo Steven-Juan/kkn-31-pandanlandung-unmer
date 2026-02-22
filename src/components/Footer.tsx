@@ -13,7 +13,7 @@ const Footer: React.FC<FooterProps> = ({ theme }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className=" border-t border-primary/20 dark:border-surface/20 dark:bg-yellow-950/70 bg-white/50 py-16 text-center px-6 sm:px-12 lg:px-24 xl:px-40"
+      className="relative z-10 border-t border-primary/20 dark:border-surface/20 dark:bg-yellow-950/70 bg-white/50 py-16 text-center px-6 sm:px-12 lg:px-24 xl:px-40"
     >
       {/* Logo + Text */}
       <motion.div

@@ -30,7 +30,7 @@ const TiktokWidget = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
       viewport={{ once: true }}
-      className="w-full max-w-275 mx-auto bg-[#1a1a1a] text-white rounded-3xl overflow-hidden shadow-2xl font-sans border border-white/10"
+      className="relative z-0 w-full max-w-275 mx-auto bg-[#1a1a1a] text-white rounded-3xl overflow-hidden shadow-2xl font-sans border border-white/10"
     >
       {/* HEADER */}
       <div className="flex flex-col md:flex-row items-center justify-between py-4 px-4 md:px-8 bg-[#1a1a1a] gap-6">

@@ -164,9 +164,18 @@ const Hero: React.FC<HeroProps> = ({ theme, setGlobalModalOpen }) => {
               After Movie KKN 31
             </h3>
 
-            <video ref={videoRef} className="w-full rounded-lg" controls>
-              <source src={assets.video_music} type="video/mp4" />
-            </video>
+            {/* YOUTUBE IFRAME PLAYER */}
+            <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg bg-black">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/MTHhpEUHlwk?si=D74W_2kHtyOEgeeH"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              ></iframe>
+            </div>
           </motion.div>
         </div>
       )}

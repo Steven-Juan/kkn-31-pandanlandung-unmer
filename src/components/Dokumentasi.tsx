@@ -13,6 +13,7 @@ import assets from "../assets";
 type DokumentasiProps = {
   theme: "light" | "dark";
   setGlobalModalOpen: Dispatch<SetStateAction<boolean>>;
+  setHideSocial: Dispatch<SetStateAction<boolean>>;
 };
 
 const ITEMS_PER_PAGE = 8;
@@ -20,6 +21,7 @@ const ITEMS_PER_PAGE = 8;
 const Dokumentasi: React.FC<DokumentasiProps> = ({
   theme,
   setGlobalModalOpen,
+  setHideSocial,
 }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -33,9 +35,16 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const currentItems = items.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
+  const handleOpenPreview = (item: GalleryItem) => {
+    setPreview(item);
+    setGlobalModalOpen(true);
+    setHideSocial(true); // SEMBUNYIKAN konten Social Media saat modal buka
+  };
+
   const handleClosePreview = () => {
     setPreview(null);
     setGlobalModalOpen(false);
+    setHideSocial(false); // MUNCULKAN KEMBALI saat modal tutup
 
     if (videoRef.current) {
       videoRef.current.pause();
@@ -44,10 +53,7 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
   };
 
   return (
-    <div
-      id="dokumentasi"
-      className="scroll-mt-10 relative isolate overflow-hidden"
-    >
+    <div id="dokumentasi" className="scroll-mt-10 relative z-10">
       <img
         src={theme === "dark" ? assets.background : assets.backgroundlight}
         alt="Background"
@@ -75,10 +81,7 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              onClick={() => {
-                setPreview(item);
-                setGlobalModalOpen(true);
-              }}
+              onClick={() => handleOpenPreview(item)}
               className="group relative rounded-2xl overflow-hidden
         bg-accent/80 dark:bg-accent/20
         backdrop-blur-xl shadow-lg
@@ -169,7 +172,7 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
         {preview && (
           <div
             onClick={handleClosePreview}
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-9998"
+            className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-99999"
           >
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
@@ -178,15 +181,32 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
               onClick={(e) => e.stopPropagation()}
               className="relative max-w-4xl w-full p-4"
             >
+              {/* TOMBOL CLOSE */}
+              <button
+                onClick={handleClosePreview}
+                className="absolute -top-2 -right-2 sm:top-6 sm:right-10 z-100000 bg-white/20 hover:bg-white/40 backdrop-blur-md p-2 rounded-full transition-all duration-300 group"
+              >
+                <img
+                  src={assets.close_icon}
+                  alt="Close"
+                  className="w-5 h-5 invert group-hover:scale-110"
+                />
+              </button>
+
+              {/* KONTEN PREVIEW */}
               {preview.type === "image" ? (
-                <img src={preview.src} className="rounded-xl w-full" />
+                <img
+                  src={preview.src}
+                  className="rounded-xl w-full shadow-2xl border border-white/10"
+                  alt="Preview"
+                />
               ) : (
                 <video
                   ref={videoRef}
                   src={preview.src}
                   controls
                   autoPlay
-                  className="rounded-xl w-full"
+                  className="rounded-xl w-full shadow-2xl border border-white/10"
                 />
               )}
             </motion.div>

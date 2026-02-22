@@ -37,6 +37,7 @@ import thumb_blog2 from "./images/thumb_blog2.png";
 import thumb_blog3 from "./images/thumb_blog3.png";
 import artikel_luaran from "./files/PKM-AI KKN 31.pdf";
 import cover_artikel from "./files/cover_artikel.png";
+import pembukaan_kkn from "./images/carousel/pembukaan_kkn.jpg";
 
 export type GalleryItem =
   | { type: "image"; src: string; title?: string }
@@ -89,6 +90,11 @@ export const company_logos = [
 ];
 
 export const carousel_data = [
+  {
+    image: pembukaan_kkn,
+    title:
+      "Foto bersama saat pembukaan KKN di Balai Desa Pandanlandung pada 20 Januari 2026",
+  },
   {
     image: carousel_1,
     title: "Konservasi Sumber Air",

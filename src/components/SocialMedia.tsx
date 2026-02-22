@@ -5,7 +5,11 @@ import TiktokWidget from "./TiktokWidget";
 import { motion } from "motion/react";
 import BloggerWidget from "./BloggerWidget";
 
-const SocialMedia: React.FC = () => {
+type SocialMediaProps = {
+  hideContent?: boolean;
+};
+
+const SocialMedia: React.FC<SocialMediaProps> = ({ hideContent }) => {
   return (
     <motion.div
       id="social-media"
@@ -19,39 +23,40 @@ const SocialMedia: React.FC = () => {
         title="Social Media"
         desc="Ikuti kegiatan terbaru KKN 31 melalui Instagram, TikTok, dan Blogger kami."
       />
-
-      <div className="mt-6 space-y-10">
-        <motion.h3
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="text-2xl font-semibold mb-6 text-primary dark:text-text-invert"
-        >
-          Instagram
-        </motion.h3>
-        <InstagramWidget />
-        <motion.h3
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="text-2xl font-semibold mb-6 text-primary dark:text-text-invert"
-        >
-          Tiktok
-        </motion.h3>
-        <TiktokWidget />
-        <motion.h3
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="text-2xl font-semibold mb-6 text-primary dark:text-text-invert"
-        >
-          Blogger
-        </motion.h3>
-        <BloggerWidget />
-      </div>
+      {!hideContent && (
+        <div className="mt-6 space-y-10 relative z-10">
+          <motion.h3
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-2xl font-semibold mb-6 text-primary dark:text-text-invert"
+          >
+            Instagram
+          </motion.h3>
+          <InstagramWidget />
+          <motion.h3
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-2xl font-semibold mb-6 text-primary dark:text-text-invert"
+          >
+            Tiktok
+          </motion.h3>
+          <TiktokWidget />
+          <motion.h3
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-2xl font-semibold mb-6 text-primary dark:text-text-invert"
+          >
+            Blogger
+          </motion.h3>
+          <BloggerWidget />
+        </div>
+      )}
     </motion.div>
   );
 };

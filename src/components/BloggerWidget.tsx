@@ -37,10 +37,10 @@ const BloggerWidget = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
       viewport={{ once: true }}
-      className="w-full max-w-275 mx-auto bg-[#1a1a1a] text-white rounded-3xl overflow-hidden shadow-2xl font-sans border border-white/10 mt-10"
+      className=" w-full max-w-275 mx-auto bg-[#1a1a1a] text-white rounded-3xl overflow-hidden shadow-2xl font-sans border border-white/10 mt-10"
     >
       {/* HEADER */}
-      <div className="flex flex-col md:flex-row items-center justify-between py-6 px-6 md:px-10 bg-[#1a1a1a] gap-6">
+      <div className=" flex flex-col md:flex-row items-center justify-between py-6 px-6 md:px-10 bg-[#1a1a1a] gap-6">
         {/* Sisi Kiri: Profil Blog */}
         <a
           href={BLOGGER_URL}
