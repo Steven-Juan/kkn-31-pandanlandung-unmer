@@ -38,6 +38,11 @@ import thumb_blog3 from "./images/thumb_blog3.png";
 import artikel_luaran from "./files/PKM-AI KKN 31.pdf";
 import cover_artikel from "./files/cover_artikel.png";
 import pembukaan_kkn from "./images/carousel/pembukaan_kkn_2026.jpg";
+import fotbar_dpl from "./images/carousel/fotbar_dpl.jpg";
+import fotbar_lppm from "./images/carousel/fotbar_lppm.jpg";
+import fotbar_dpl_lppm from "./images/carousel/fotbar_dpl_lppm.jpg";
+import fotbar_sosialisasi from "./images/carousel/fotbar_sosialisasi.jpg";
+import fotbar_bapakibuposko from "./images/carousel/fotbar_bapakibuposko.jpg";
 
 export type GalleryItem =
   | { type: "image"; src: string; title?: string }
@@ -96,20 +101,28 @@ export const carousel_data = [
       "Foto bersama saat pembukaan KKN di Balai Desa Pandanlandung pada 20 Januari 2026",
   },
   {
-    image: carousel_1,
-    title: "Konservasi Sumber Air",
+    image: fotbar_dpl,
+    title: "Foto bersama DPL di Sumber Kucur pada 28 Januari 2026",
   },
   {
-    image: carousel_2,
-    title: "Edukasi Lingkungan",
+    image: fotbar_lppm,
+    title:
+      "Foto bersama tim LPPM yang berkunjung ke lokasi Sumber Kucur guna meninjau langsung progres dan realisasi program konservasi sumber air pada 4 Februari 2026",
   },
   {
-    image: carousel_3,
-    title: "Kolaborasi Bersama Masyarakat",
+    image: fotbar_dpl_lppm,
+    title:
+      "Foto bersama tim LPPM dan DPL Kelompok 31, 32, serta 33 dalam kunjungan lanjutan pada 5 Februari 2026 ke lokasi Sumber Kucur untuk penilaian langsung terhadap hasil program kerja Kelompok 31",
   },
   {
-    image: carousel_4,
-    title: "Aksi Nyata Berkelanjutan",
+    image: fotbar_sosialisasi,
+    title:
+      "Foto bersama Bapak dan Ibu RW 05 setelah pelaksanaan kegiatan sosialisasi mengenai pentingnya menjaga dan melestarikan sumber air di wilayah RW 05",
+  },
+  {
+    image: fotbar_bapakibuposko,
+    title:
+      "Momen perpisahan dan foto bersama Bapak serta Ibu pemilik posko KKN 31 pada 19 Februari 2026. Dokumentasi ini diambil sebagai tanda terima kasih sekaligus pamit setelah berakhirnya masa pengabdian di Desa Pandanlandung",
   },
 ];
 

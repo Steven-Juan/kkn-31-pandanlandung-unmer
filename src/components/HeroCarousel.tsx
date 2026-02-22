@@ -8,7 +8,7 @@ const HeroCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev === carousel_data.length - 1 ? 0 : prev + 1));
-    }, 4000);
+    }, 8000);
 
     return () => clearInterval(interval);
   }, []);
