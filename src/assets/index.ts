@@ -42,7 +42,29 @@ import fotbar_dpl from "./images/carousel/fotbar_dpl.jpg";
 import fotbar_lppm from "./images/carousel/fotbar_lppm.jpg";
 import fotbar_dpl_lppm from "./images/carousel/fotbar_dpl_lppm.jpg";
 import fotbar_sosialisasi from "./images/carousel/fotbar_sosialisasi.jpg";
+import penutupan_kkn from "./images/carousel/penutupan_kkn.jpg";
 import fotbar_bapakibuposko from "./images/carousel/fotbar_bapakibuposko.jpg";
+import dpl_elfrida from "./images/teams/dpl_elfrida.jpg";
+import ketua_shabrina from "./images/teams/ketua_shabrina.jpg";
+import sekretaris_sovita from "./images/teams/sekretaris_sovita.jpg";
+import bendahara_ima from "./images/teams/bendahara_ima.jpg";
+import acara_amanda from "./images/teams/acara_amanda.jpg";
+import acara_surya from "./images/teams/acara_surya.jpg";
+import acara_raihan from "./images/teams/acara_raihan.jpg";
+import acara_shierly from "./images/teams/acara_shierly.jpg";
+import pdd_seyladiva from "./images/teams/pdd_seyladiva.jpg";
+import pdd_hasa from "./images/teams/pdd_hasa.jpg";
+import pdd_alfris from "./images/teams/pdd_alfris.jpg";
+import humas_sonya from "./images/teams/humas_sonya.jpg";
+import humas_nadya from "./images/teams/humas_nadya.jpg";
+import humas_juan from "./images/teams/humas_juan.jpg";
+import perkap_lex from "./images/teams/perkap_lex.jpg";
+import perkap_eghi from "./images/teams/perkap_eghi.jpg";
+import perkap_yogi from "./images/teams/perkap_yogi.jpg";
+import perkap_stefan from "./images/teams/perkap_stefan.jpg";
+import konsumsi_sindy from "./images/teams/konsumsi_sindy.jpg";
+import konsumsi_sherlly from "./images/teams/konsumsi_sherlly.jpg";
+import konsumsi_iyan from "./images/teams/konsumsi_iyan.jpg";
 
 export type GalleryItem =
   | { type: "image"; src: string; title?: string }
@@ -118,6 +140,11 @@ export const carousel_data = [
     image: fotbar_sosialisasi,
     title:
       "Foto bersama Bapak dan Ibu RW 05 setelah pelaksanaan kegiatan sosialisasi mengenai pentingnya menjaga dan melestarikan sumber air di wilayah RW 05",
+  },
+  {
+    image: penutupan_kkn,
+    title:
+      "Foto bersama saat penutupan KKN di Balai Desa Pandanlandung pada 18 Februari 2026",
   },
   {
     image: fotbar_bapakibuposko,
@@ -211,31 +238,27 @@ export const teamData: TeamMember[] = [
   {
     name: "Elfrida Br. Silalahi, S.Pd., M.Pd.",
     division: "DPL",
-    image:
-      "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=400&auto=format&fit=crop",
-    instagram: "loremipsum",
+    image: dpl_elfrida,
+    instagram: "elfridasilalahi__",
   },
 
   // ================= BPH =================
   {
     name: "Shabrina Syadiyah Sari",
     division: "BPH - Ketua",
-    image:
-      "https://images.unsplash.com/photo-1549351512-c5e12b11e283?q=80&w=400&auto=format&fit=crop",
+    image: ketua_shabrina,
     instagram: "shabrn.ss",
   },
   {
     name: "Sovita Choirul Nisa",
     division: "BPH - Sekretaris",
-    image:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop",
+    image: sekretaris_sovita,
     instagram: "sovitacn",
   },
   {
     name: "Siti Nurrohmah",
     division: "BPH - Bendahara",
-    image:
-      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=400&auto=format&fit=crop",
+    image: bendahara_ima,
     instagram: "nurroh_1109",
   },
 
@@ -243,129 +266,113 @@ export const teamData: TeamMember[] = [
   {
     name: "Serli Amanda Putri",
     division: "Acara (CO)",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop",
+    image: acara_amanda,
     instagram: "srlamanda__",
   },
   {
     name: "Raihan Sahidallah",
     division: "Acara",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop",
-    instagram: "loremipsum",
+    image: acara_raihan,
+    instagram: "rhnnsnn",
   },
   {
     name: "Shierlyana Andestian",
     division: "Acara",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop",
-    instagram: "loremipsum",
+    image: acara_shierly,
+    instagram: "andshierly",
   },
   {
     name: "Surya Kusuma Prasetyo Aji",
     division: "Acara",
-    image:
-      "https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=400&auto=format&fit=crop",
-    instagram: "loremipsum",
-  },
-
-  // ================= KONSUMSI =================
-  {
-    name: "Serilia K Tawurutubun",
-    division: "Konsumsi (CO)",
-    image:
-      "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=400&auto=format&fit=crop",
-    instagram: "loremipsum",
-  },
-  {
-    name: "Sindi Syahrotul Nafisa",
-    division: "Konsumsi",
-    image:
-      "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=400&auto=format&fit=crop",
-    instagram: "loremipsum",
-  },
-  {
-    name: "Muhammad Sopyandi",
-    division: "Konsumsi",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop",
-    instagram: "loremipsum",
-  },
-
-  // ================= PERKAP =================
-  {
-    name: "Stefanus Padak Bura Wungbolong",
-    division: "Perkap (CO)",
-    image:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400&auto=format&fit=crop",
-    instagram: "loremipsum",
-  },
-  {
-    name: "Suwegi Dowansiba",
-    division: "Perkap",
-    image:
-      "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=400&auto=format&fit=crop",
-    instagram: "loremipsum",
-  },
-  {
-    name: "Stefanus Budiman",
-    division: "Perkap",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
-    instagram: "loremipsum",
-  },
-  {
-    name: "Sugiarto Ale Bento",
-    division: "Perkap",
-    image:
-      "https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?q=80&w=400&auto=format&fit=crop",
-    instagram: "loremipsum",
-  },
-
-  // ================= HUMAS =================
-  {
-    name: "Sonya Aprina Korinta",
-    division: "Humas (CO)",
-    image:
-      "https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=400&auto=format&fit=crop",
-    instagram: "loremipsum",
-  },
-  {
-    name: "Syafila Nadya Kartika",
-    division: "Humas",
-    image:
-      "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=400&auto=format&fit=crop",
-    instagram: "loremipsum",
-  },
-  {
-    name: "Steven Juan Tanoko",
-    division: "Humas",
-    image:
-      "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=400&auto=format&fit=crop",
-    instagram: "loremipsum",
+    image: acara_surya,
+    instagram: "eir_nafnapulur",
   },
 
   // ================= PDD =================
   {
     name: "Seyladiva Ratry Maharani",
     division: "PDD (CO)",
-    image:
-      "https://images.unsplash.com/photo-1549351512-c5e12b11e283?q=80&w=400&auto=format&fit=crop",
-    instagram: "loremipsum",
+    image: pdd_seyladiva,
+    instagram: "seylvaarn",
   },
   {
     name: "Siti Komariyatul Hasanah",
     division: "PDD",
-    image:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop",
-    instagram: "loremipsum",
+    image: pdd_hasa,
+    instagram: "riya.hasanah",
   },
   {
     name: "Stefanus Alfrisius Daputra Susanto",
     division: "PDD",
-    image:
-      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=400&auto=format&fit=crop",
-    instagram: "loremipsum",
+    image: pdd_alfris,
+    instagram: "vexworld_01",
+  },
+
+  // ================= HUMAS =================
+  {
+    name: "Sonya Aprina Korinta",
+    division: "Humas (CO)",
+    image: humas_sonya,
+    instagram: "sonyaaprna",
+  },
+  {
+    name: "Syafila Nadya Kartika",
+    division: "Humas",
+    image: humas_nadya,
+    instagram: "ndyakrtka",
+  },
+  {
+    name: "Steven Juan Tanoko",
+    division: "Humas",
+    image: humas_juan,
+    instagram: "stevj00",
+  },
+
+  // ================= PERKAP =================
+  {
+    name: "Stefanus Padak Bura Wungbolong",
+    division: "Perkap (CO)",
+    image: perkap_lex,
+    instagram: "stevenlex02",
+  },
+  {
+    name: "Suwegi Dowansiba",
+    division: "Perkap",
+    image: perkap_eghi,
+    instagram: "eghidowansiba",
+  },
+  {
+    name: "Stefanus Budiman",
+    division: "Perkap",
+    image: perkap_stefan,
+    instagram: "stevvann___",
+  },
+  {
+    name: "Sugiarto Ale Bento",
+    division: "Perkap",
+    image: perkap_yogi,
+    instagram: "yogii.bento",
+  },
+
+  // ================= KONSUMSI =================
+  {
+    name: "Sindi Syahrotul Nafisa",
+    division: "Konsumsi (CO)",
+    image: konsumsi_sindy,
+    instagram: "sndyaaatmj",
+  },
+  {
+    name: "Serilia K Tawurutubun",
+    division: "Konsumsi ",
+    image: konsumsi_sherlly,
+    instagram: "shrllyyyyyy12__",
+  },
+
+  {
+    name: "Muhammad Sopyandi",
+    division: "Konsumsi",
+    image: konsumsi_iyan,
+    instagram: "_ynfvk",
   },
 ];
 

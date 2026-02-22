@@ -45,11 +45,13 @@ const Teams: React.FC<TeamsProps> = ({ theme }) => {
                         hover:scale-[1.03] hover:shadow-2xl
                         max-w-sm w-full"
             >
-              <img
-                src={team.image}
-                alt={team.name}
-                className="w-24 h-24 rounded-full object-cover"
-              />
+              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-secondary/20 flex items-center justify-center bg-neutral-100">
+                <img
+                  src={team.image}
+                  alt={team.name}
+                  className="w-full h-full object-cover scale-[3] object-[center_10%]"
+                />
+              </div>
 
               <div className="text-center">
                 <h3
@@ -104,11 +106,13 @@ const Teams: React.FC<TeamsProps> = ({ theme }) => {
                         transition-all duration-300
                         hover:scale-[1.03] hover:shadow-2xl"
             >
-              <img
-                src={team.image}
-                alt={team.name}
-                className="w-20 h-20 rounded-full object-cover"
-              />
+              <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-secondary/20 flex items-center justify-center bg-neutral-100">
+                <img
+                  src={team.image}
+                  alt={team.name}
+                  className="w-full h-full object-cover scale-[2] object-[center_15%]"
+                />
+              </div>
 
               <div className="text-center">
                 <h3
