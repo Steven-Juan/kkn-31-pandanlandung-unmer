@@ -24,7 +24,6 @@ import tiktok_icon_dark from "./icons/tiktok_icon_dark.png";
 import blogger_icon from "./icons/blogger.png";
 import blogger_icon_dark from "./icons/blogger_dark.png";
 import logo_kkn_simple from "./logos/logo_kkn_simple.png";
-import video_music from "./videos/guilty as sin_ x about you (remix).mp4";
 import post_ig_day16 from "./images/post_ig_day16.jpg";
 import post_ig_day17 from "./images/post_ig_day17.jpg";
 import post_ig_day18 from "./images/post_ig_day18.jpg";
@@ -76,6 +75,8 @@ import pembuatan_pembatas from "./images/proker/pembuatan_pembatas.jpg";
 import pembuatan_tong_sampah from "./images/proker/pembuatan_tong_sampah.jpg";
 import pembuatan_papan_penunjuk_jalan from "./images/proker/pembuatan_papan_penunjuk_jalan.jpg";
 import kegiatan_sosialisasi from "./images/proker/kegiatan_sosialisasi.jpg";
+//Dokumentasi
+import video_survei from "./dokumentasi/video/survei_awal.mp4";
 
 export type GalleryItem =
   | { type: "image"; src: string; title?: string }
@@ -101,7 +102,6 @@ const assets = {
   tiktok_icon,
   tiktok_icon_dark,
   logo_kkn_simple,
-  video_music,
   carousel_2,
   carousel_3,
   carousel_4,
@@ -255,8 +255,8 @@ export const dokumentasi_data: GalleryItem[] = [
 
   {
     type: "video",
-    src: video_music,
-    title: "After Movie KKN 31",
+    src: video_survei,
+    title: "Survei Awal Lokasi Sumber Kucur",
   },
 ];
 

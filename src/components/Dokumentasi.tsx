@@ -26,25 +26,33 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [preview, setPreview] = useState<GalleryItem | null>(null);
+  const [filter, setFilter] = useState<"all" | "image" | "video">("all");
 
-  const items = dokumentasi_data;
+  const filteredItems =
+    filter === "all"
+      ? dokumentasi_data
+      : dokumentasi_data.filter((item) => item.type === filter);
 
-  const totalItems = items.length;
+  const totalItems = filteredItems.length;
   const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
 
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const currentItems = items.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+  const currentItems = filteredItems.slice(
+    startIndex,
+    startIndex + ITEMS_PER_PAGE,
+  );
 
   const handleOpenPreview = (item: GalleryItem) => {
     setPreview(item);
     setGlobalModalOpen(true);
-    setHideSocial(true); // SEMBUNYIKAN konten Social Media saat modal buka
+    setHideSocial(true);
   };
 
   const handleClosePreview = () => {
     setPreview(null);
     setGlobalModalOpen(false);
-    setHideSocial(false); // MUNCULKAN KEMBALI saat modal tutup
+    setHideSocial(false);
 
     if (videoRef.current) {
       videoRef.current.pause();
@@ -69,7 +77,26 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
           title="Dokumentasi Kegiatan"
           desc="Kumpulan dokumentasi kegiatan KKN 31 Universitas Merdeka Malang di Desa Pandanlandung"
         />
-
+        {/* FILTER BUTTONS */}
+        <div className="flex justify-center gap-4 mt-10">
+          {(["all", "image", "video"] as const).map((type) => (
+            <button
+              key={type}
+              onClick={() => {
+                setFilter(type); // Tidak perlu 'as any' karena 'type' sudah pasti salah satu dari tiga nilai tersebut
+                setCurrentPage(1);
+              }}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 border
+        ${
+          filter === type
+            ? "bg-primary text-white border-primary shadow-lg scale-105"
+            : "bg-white/10 dark:bg-white/5 text-primary dark:text-text-invert border-secondary/20 hover:border-primary/50"
+        }`}
+            >
+              {type === "all" ? "Semua" : type === "image" ? "Foto" : "Video"}
+            </button>
+          ))}
+        </div>
         {/* GRID */}
         <div
           key={currentPage}
@@ -184,31 +211,33 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
               {/* TOMBOL CLOSE */}
               <button
                 onClick={handleClosePreview}
-                className="absolute -top-2 -right-2 sm:top-6 sm:right-10 z-100000 bg-white/20 hover:bg-white/40 backdrop-blur-md p-2 rounded-full transition-all duration-300 group"
+                className="absolute -top-4 -right-4 z-100000 bg-primary hover:bg-red-500 text-white p-2 rounded-full shadow-xl transition-all duration-300 group"
               >
                 <img
                   src={assets.close_icon}
                   alt="Close"
-                  className="w-5 h-5 invert group-hover:scale-110"
+                  className="w-5 h-5 invert group-hover:rotate-90 transition-transform duration-300"
                 />
               </button>
 
               {/* KONTEN PREVIEW */}
-              {preview.type === "image" ? (
-                <img
-                  src={preview.src}
-                  className="rounded-xl w-full shadow-2xl border border-white/10"
-                  alt="Preview"
-                />
-              ) : (
-                <video
-                  ref={videoRef}
-                  src={preview.src}
-                  controls
-                  autoPlay
-                  className="rounded-xl w-full shadow-2xl border border-white/10"
-                />
-              )}
+              <div className="flex justify-center w-full">
+                {preview.type === "image" ? (
+                  <img
+                    src={preview.src}
+                    className="rounded-xl shadow-2xl border border-white/20 max-h-[85vh] w-auto object-contain"
+                    alt="Preview"
+                  />
+                ) : (
+                  <video
+                    ref={videoRef}
+                    src={preview.src}
+                    controls
+                    autoPlay
+                    className="rounded-xl shadow-2xl border border-white/20 max-h-[85vh] w-auto mx-auto object-contain"
+                  />
+                )}
+              </div>
             </motion.div>
           </div>
         )}
