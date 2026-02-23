@@ -45,7 +45,7 @@ const Teams: React.FC<TeamsProps> = ({ theme }) => {
                         hover:scale-[1.03] hover:shadow-2xl
                         max-w-sm w-full"
             >
-              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-secondary/20 flex items-center justify-center bg-neutral-100">
+              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-secondary/20 flex items-center justify-center bg-neutral-900 dark:bg-neutral-100 group-hover:bg-neutral-100 dark:group-hover:bg-neutral-900">
                 <img
                   src={team.image}
                   alt={team.name}
@@ -106,7 +106,7 @@ const Teams: React.FC<TeamsProps> = ({ theme }) => {
                         transition-all duration-300
                         hover:scale-[1.03] hover:shadow-2xl"
             >
-              <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-secondary/20 flex items-center justify-center bg-neutral-100">
+              <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-secondary/20 flex items-center justify-center bg-neutral-900 dark:bg-neutral-100 group-hover:bg-neutral-100 dark:group-hover:bg-neutral-900">
                 <img
                   src={team.image}
                   alt={team.name}

@@ -9,7 +9,6 @@ import close_icon from "./icons/close_icon.svg";
 import sun_icon from "./icons/sun_icon.svg";
 import moon_icon from "./icons/moon_icon.svg";
 import hero_img from "./images/hero_img.png";
-import carousel_1 from "./images/carousel_1.jpeg";
 import carousel_2 from "./images/carousel_2.jpeg";
 import carousel_3 from "./images/carousel_3.jpeg";
 import carousel_4 from "./images/carousel_4.jpeg";
@@ -65,6 +64,18 @@ import perkap_stefan from "./images/teams/perkap_stefan.jpg";
 import konsumsi_sindy from "./images/teams/konsumsi_sindy.jpg";
 import konsumsi_sherlly from "./images/teams/konsumsi_sherlly.jpg";
 import konsumsi_iyan from "./images/teams/konsumsi_iyan.jpg";
+import survei_lokasi from "./images/proker/survei_lokasi.jpeg";
+import pembelian_perlengkapan from "./images/proker/pembelian_perlengkapan.png";
+import pembuatan_plang from "./images/proker/pembuatan_plang.jpg";
+import pembuatan_jembatan from "./images/proker/pembuatan_jembatan.jpg";
+import pembuatan_pagar from "./images/proker/pembuatan_pagar.jpg";
+import kerja_bakti from "./images/proker/kerja_bakti.jpg";
+import pembuatan_gapura from "./images/proker/pembuatan_gapura.jpg";
+import penambahan_saluran from "./images/proker/penambahan_saluran.jpg";
+import pembuatan_pembatas from "./images/proker/pembuatan_pembatas.jpg";
+import pembuatan_tong_sampah from "./images/proker/pembuatan_tong_sampah.jpg";
+import pembuatan_papan_penunjuk_jalan from "./images/proker/pembuatan_papan_penunjuk_jalan.jpg";
+import kegiatan_sosialisasi from "./images/proker/kegiatan_sosialisasi.jpg";
 
 export type GalleryItem =
   | { type: "image"; src: string; title?: string }
@@ -91,7 +102,6 @@ const assets = {
   tiktok_icon_dark,
   logo_kkn_simple,
   video_music,
-  carousel_1,
   carousel_2,
   carousel_3,
   carousel_4,
@@ -107,14 +117,6 @@ const assets = {
   artikel_luaran,
   cover_artikel,
 };
-
-export const company_logos = [
-  logo_kkn,
-  lppm_logo,
-  unmer_exceed,
-  unmer_logo,
-  unmer_brand,
-];
 
 export const carousel_data = [
   {
@@ -161,60 +163,92 @@ export interface ProkerItem {
 
 export const proker_data: ProkerItem[] = [
   {
+    title: "Survei Lokasi",
+    description:
+      "Identifikasi permasalahan lingkungan di area sumber air RW 05, mulai dari sampah yang tidak terawat hingga sulitnya akses jalan bagi warga.",
+    image: survei_lokasi,
+  },
+  {
+    title: "Pembelian Perlengkapan",
+    description:
+      "Pengadaan bahan utama seperti kayu dan material infrastruktur lainnya dengan memastikan mutu dan ketahanan bahan untuk pembangunan di lapangan.",
+    image: pembelian_perlengkapan,
+  },
+  {
     title: "Pembuatan Plang Larangan",
     description:
-      "Pemasangan plang berisi larangan keras membuang sampah di area sekitar Sumber Air Kucur, dilengkapi informasi waktu terurai berbagai jenis sampah sebagai bentuk edukasi kepada masyarakat.",
-    image: carousel_1,
+      "Pemasangan papan larangan membuang sampah yang dilengkapi informasi edukatif mengenai waktu urai berbagai jenis sampah di alam.",
+    image: pembuatan_plang,
   },
   {
-    title: "Pembuatan Plang Petunjuk Arah",
+    title: "Pembuatan Jembatan",
     description:
-      "Pemasangan plang petunjuk arah pada jalur menuju Sumber Air Kucur guna memudahkan masyarakat menemukan lokasi sumber air.",
-    image: carousel_2,
+      "Pembangunan sarana penyeberangan permanen guna memperbaiki akses masyarakat dalam melakukan pengawasan dan perawatan sumber air.",
+    image: pembuatan_jembatan,
   },
   {
-    title: "Pembuatan Jembatan Akses",
+    title: "Pembuatan Pagar",
     description:
-      "Pembangunan jembatan menuju sumber utama menggunakan material yang kuat untuk mempermudah akses dan memiliki ketahanan jangka panjang.",
-    image: carousel_3,
+      "Pemasangan pagar pembatas menggunakan bambu untuk melindungi area resapan air sekaligus memberikan batas visual zona konservasi.",
+    image: pembuatan_pagar,
   },
   {
-    title: "Pembuatan & Pengecatan Pagar",
+    title: "Kerja Bakti Bersama Warga",
     description:
-      "Pembuatan pagar pembatas menggunakan bambu serta pengecatan warna kuning untuk meningkatkan keamanan sekaligus memperindah kawasan sumber air.",
-    image: carousel_4,
+      "Aksi pembersihan jalur menuju sumber air dan perbaikan akses jalan menggunakan bongkahan material demi kelancaran perjalanan masyarakat.",
+    image: kerja_bakti,
   },
   {
-    title: "Pemasangan Gapura",
+    title: "Pembuatan Gapura Sumber Kucur",
     description:
-      "Pemasangan gapura sebagai penanda identitas Sumber Air Kucur menggunakan bahan bambu dan papan kayu.",
-    image: carousel_1,
+      "Pembangunan dan pengecatan gapura sebagai penanda identitas kawasan agar lebih teratur, menarik, dan mudah dikenali pengunjung.",
+    image: pembuatan_gapura,
   },
   {
-    title: "Pembuatan Tempat Sampah Pilah",
+    title: "Penambahan Saluran Air",
     description:
-      "Pembuatan tempat sampah pilah dari kaleng cat bekas dan rangka kayu untuk memudahkan masyarakat menjaga kebersihan area sumber air.",
-    image: carousel_2,
+      "Pemasangan pipa paralon tambahan untuk memperluas distribusi aliran air dari sumbernya agar lebih merata dan efisien bagi masyarakat.",
+    image: penambahan_saluran,
+  },
+  {
+    title: "Pembuatan Pembatas Sumber Air",
+    description:
+      "Penataan struktur pembatas dari batu dan semen untuk melindungi kemurnian aliran air serta meminimalkan risiko kerusakan lingkungan.",
+    image: pembuatan_pembatas,
+  },
+  {
+    title: "Pembuatan Tong Sampah",
+    description:
+      "Penyediaan tempat sampah yang dicat dan dilabeli berdasarkan jenisnya untuk mendorong masyarakat mengelola sampah secara terorganisir.",
+    image: pembuatan_tong_sampah,
+  },
+  {
+    title: "Pembuatan Papan Penunjuk Jalan",
+    description:
+      "Pemasangan papan arah berbahan besi yang kokoh di lokasi strategis guna memudahkan pengunjung menemukan lokasi Sumber Kucur.",
+    image: pembuatan_papan_penunjuk_jalan,
+  },
+  {
+    title: "Sosialisasi Pelestarian Sumber Kucur",
+    description:
+      "Penyampaian materi secara langsung kepada warga mengenai langkah-langkah menjaga keberlanjutan sumber air sebagai aset lingkungan desa.",
+    image: kegiatan_sosialisasi,
   },
 ];
 
 export const dokumentasi_data: GalleryItem[] = [
-  { type: "image", src: carousel_1, title: "Konservasi Sumber Air" },
   { type: "image", src: carousel_2, title: "Kerja Bakti" },
   { type: "image", src: carousel_3, title: "Perbaikan Akses" },
   { type: "image", src: carousel_4, title: "Pemasangan Gapura" },
 
-  { type: "image", src: carousel_1 },
   { type: "image", src: carousel_2 },
   { type: "image", src: carousel_3 },
   { type: "image", src: carousel_4 },
 
-  { type: "image", src: carousel_1 },
   { type: "image", src: carousel_2 },
   { type: "image", src: carousel_3 },
   { type: "image", src: carousel_4 },
 
-  { type: "image", src: carousel_1 },
   { type: "image", src: carousel_2 },
   { type: "image", src: carousel_3 },
   { type: "image", src: carousel_4 },
@@ -226,6 +260,13 @@ export const dokumentasi_data: GalleryItem[] = [
   },
 ];
 
+export const company_logos = [
+  logo_kkn,
+  lppm_logo,
+  unmer_exceed,
+  unmer_logo,
+  unmer_brand,
+];
 export interface TeamMember {
   name: string;
   division: string;

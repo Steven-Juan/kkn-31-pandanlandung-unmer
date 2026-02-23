@@ -85,31 +85,32 @@ const ProgramKerja: React.FC<ProgramKerjaProps> = ({ setGlobalModalOpen }) => {
       {previewImage && (
         <div
           onClick={handleClosePreview}
-          className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-99999"
+          className="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center z-[99999] p-4"
         >
           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
+            initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-4xl w-full p-4"
+            // Menggunakan h-fit dan w-fit agar container mengikuti ukuran gambar yang sudah di-contain
+            className="relative max-w-4xl max-h-[90vh] flex items-center justify-center"
           >
-            {/* TOMBOL CLOSE */}
+            {/* TOMBOL CLOSE - Sekarang nempel di pojok kanan atas gambar */}
             <button
               onClick={handleClosePreview}
-              className="absolute -top-2 -right-2 sm:top-6 sm:right-10 z-100000 bg-white/20 hover:bg-white/40 backdrop-blur-md p-2 rounded-full transition-all duration-300 group"
+              className="absolute -top-4 -right-4 z-[100000] bg-primary hover:bg-red-500 text-white p-2 rounded-full shadow-xl transition-all duration-300 group"
             >
               <img
                 src={assets.close_icon}
                 alt="Close"
-                className="w-5 h-5 invert group-hover:scale-110"
+                className="w-5 h-5 invert group-hover:rotate-90 transition-transform duration-300"
               />
             </button>
 
             {/* GAMBAR PREVIEW */}
             <img
               src={previewImage}
-              className="rounded-xl w-full shadow-2xl border border-white/10"
+              className="rounded-xl shadow-2xl border border-white/20 max-h-[85vh] w-auto object-contain"
               alt="Preview Program Kerja"
             />
           </motion.div>
