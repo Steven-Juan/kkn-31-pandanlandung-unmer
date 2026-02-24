@@ -14,6 +14,7 @@ import carousel_3 from "./images/carousel_3.jpeg";
 import carousel_4 from "./images/carousel_4.jpeg";
 import unmer_logo from "./logos/unmer_logo.png";
 import lppm_logo from "./logos/lppm_logo.png";
+import logo_lppm from "./logos/logo_lppm.png";
 import unmer_exceed from "./logos/unmer_exceed.png";
 import unmer_brand from "./logos/unmer_brand.png";
 import instagram_icon from "./icons/instagram_icon.png";
@@ -173,6 +174,14 @@ const assets = {
   cover_artikel,
 };
 
+export const company_logos = [
+  logo_kkn,
+  lppm_logo,
+  unmer_exceed,
+  unmer_logo,
+  unmer_brand,
+  logo_lppm,
+];
 interface ViteAssetModule {
   default: string;
 }
@@ -275,13 +284,7 @@ export const dokumentasi_data: GalleryItem[] = [
   ...allImages,
   ...allVideos,
 ].sort((a, b) => a.id - b.id);
-export const company_logos = [
-  logo_kkn,
-  lppm_logo,
-  unmer_exceed,
-  unmer_logo,
-  unmer_brand,
-];
+
 // 1. Ambil semua gambar tim sekaligus
 const teamImages = import.meta.glob<ViteAssetModule>(
   "./images/teams/*.{jpg,jpeg,png}",
