@@ -28,17 +28,24 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
   const [preview, setPreview] = useState<GalleryItem | null>(null);
   const [filter, setFilter] = useState<"all" | "image" | "video">("all");
 
+  // 1. Filter data berdasarkan tipe
   const filteredItems =
     filter === "all"
       ? dokumentasi_data
       : dokumentasi_data.filter((item) => item.type === filter);
 
-  const totalItems = filteredItems.length;
+  // 2. Urutkan berdasarkan ID (angka dari nama file)
+  // Gunakan (a, b) => a.id - b.id untuk urutan 01, 02, dst.
+  // Gunakan (a, b) => b.id - a.id jika ingin yang terbaru/angka besar di depan.
+  const sortedItems = [...filteredItems].sort((a, b) => a.id - b.id);
+
+  const totalItems = sortedItems.length;
   const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
 
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
 
-  const currentItems = filteredItems.slice(
+  // 3. Ambil item dari data yang SUDAH di-sort
+  const currentItems = sortedItems.slice(
     startIndex,
     startIndex + ITEMS_PER_PAGE,
   );
@@ -59,6 +66,23 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
       videoRef.current.currentTime = 0;
     }
   };
+  const getPaginationGroup = () => {
+    const range = 2; // Jumlah halaman yang muncul di sekitar halaman aktif
+    const segments: (number | string)[] = [];
+
+    for (let i = 1; i <= totalPages; i++) {
+      if (
+        i === 1 || // Selalu tampilkan halaman pertama
+        i === totalPages || // Selalu tampilkan halaman terakhir
+        (i >= currentPage - range && i <= currentPage + range) // Halaman di sekitar aktif
+      ) {
+        segments.push(i);
+      } else if (segments[segments.length - 1] !== "...") {
+        segments.push("...");
+      }
+    }
+    return segments;
+  };
 
   return (
     <div id="dokumentasi" className="scroll-mt-10 relative z-10">
@@ -78,7 +102,7 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
           desc="Kumpulan dokumentasi kegiatan KKN 31 Universitas Merdeka Malang di Desa Pandanlandung"
         />
         {/* FILTER BUTTONS */}
-        <div className="flex justify-center gap-4 mt-10">
+        <div className="flex justify-center gap-4 mt-5">
           {(["all", "image", "video"] as const).map((type) => (
             <button
               key={type}
@@ -100,7 +124,7 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
         {/* GRID */}
         <div
           key={currentPage}
-          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-16 min-h-100"
+          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-5 min-h-100"
         >
           {currentItems.map((item, index) => (
             <motion.div
@@ -166,29 +190,32 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
             <button
               disabled={currentPage === 1}
               onClick={() => setCurrentPage((p) => p - 1)}
-              className="px-3 py-1 rounded-md dark:bg-white/10 bg-black/30 disabled:opacity-40"
+              className="px-3 py-1 rounded-md dark:bg-white/10 bg-black/30 disabled:opacity-40 hover:bg-primary/50 transition-colors"
             >
               Prev
             </button>
 
-            {Array.from({ length: totalPages }, (_, i) => (
+            {getPaginationGroup().map((item, i) => (
               <button
                 key={i}
-                onClick={() => setCurrentPage(i + 1)}
-                className={`px-3 py-1 rounded-md ${
-                  currentPage === i + 1
-                    ? "dark:bg-accent bg-primary text-white"
-                    : "dark:bg-white/10 bg-black/30"
+                disabled={item === "..."}
+                onClick={() => typeof item === "number" && setCurrentPage(item)}
+                className={`px-3 py-1 rounded-md transition-all ${
+                  currentPage === item
+                    ? "dark:bg-accent bg-primary text-white scale-110 shadow-md"
+                    : item === "..."
+                      ? "cursor-default opacity-50"
+                      : "dark:bg-white/10 bg-black/30 hover:bg-primary/20"
                 }`}
               >
-                {i + 1}
+                {item}
               </button>
             ))}
 
             <button
               disabled={currentPage === totalPages}
               onClick={() => setCurrentPage((p) => p + 1)}
-              className="px-3 py-1 rounded-md dark:bg-white/10 bg-black/30 disabled:opacity-40"
+              className="px-3 py-1 rounded-md dark:bg-white/10 bg-black/30 disabled:opacity-40 hover:bg-primary/50 transition-colors"
             >
               Next
             </button>
