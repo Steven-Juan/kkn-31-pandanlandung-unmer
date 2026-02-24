@@ -11,9 +11,9 @@ type LuaranProps = {
 
 const luaranData = [
   {
-    title: "Poster Program Kerja",
+    title: "Optimalisasi dan Pelestarian Sumber Kucur",
     category: "Postergrafis",
-    desc: "Visualisasi program konservasi sumber air dan pengembangan potensi desa Pandanlandung.",
+    desc: "Poster rangkuman program kerja KKN Kelompok 31 dalam mengelola sumber air dan memajukan potensi Desa Pandanlandung agar tetap terjaga dan bermanfaat bagi warga.",
     image: "",
     link: "",
     isPopup: false,
@@ -24,7 +24,7 @@ const luaranData = [
     category: "PKM-AI",
     desc: "Studi mengenai konservasi sumber air dan edukasi lingkungan sebagai upaya pengembangan desa berkelanjutan di Desa Pandanlandung.",
     image: assets.cover_artikel,
-    link: assets.artikel_luaran,
+    link: "https://drive.google.com/file/d/1rwqZ317SYYoRT1CUcJMMexCmpLoU1Dcd/preview",
     isPopup: true,
   },
 ];
@@ -189,18 +189,17 @@ const Luaran: React.FC<LuaranProps> = ({
             {/* MODAL FOOTER */}
             <div className="p-4 bg-white border-t flex justify-between items-center">
               <p className="hidden md:block text-xs text-neutral-400 italic">
-                *Jika PDF tidak muncul, klik tombol download untuk melihat
-                dokumen.
+                *Jika PDF tidak muncul, klik tombol open in new tab untuk
+                melihat dokumen.
               </p>
               <div className="flex gap-3 w-full md:w-auto">
                 <a
                   href={previewPdf}
                   target="_blank"
                   rel="noopener noreferrer"
-                  download
                   className="flex-1 md:flex-none text-center bg-primary text-white px-8 py-3 rounded-xl font-bold text-sm hover:bg-primary/90 transition-all active:scale-95 shadow-lg"
                 >
-                  Download PDF
+                  Open in New Tab
                 </a>
               </div>
             </div>

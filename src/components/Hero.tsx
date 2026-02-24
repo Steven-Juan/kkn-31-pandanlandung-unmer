@@ -167,33 +167,16 @@ const Hero: React.FC<HeroProps> = ({ theme, setGlobalModalOpen }) => {
             </h3>
 
             {/* YOUTUBE IFRAME PLAYER */}
-            {/* <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg bg-black">
+            <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg bg-black">
               <iframe
                 width="100%"
                 height="100%"
-                src={assets.after_movie}
+                src="https://drive.google.com/file/d/1SUQbhnWnWB_rSJuHWA5HzVsBSmxPL0tf/preview"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 className="absolute inset-0 w-full h-full"
               ></iframe>
-            </div> */}
-
-            {/* Video Player untuk File Lokal */}
-            <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg bg-black">
-              {open && (
-                <video
-                  width="100%"
-                  height="100%"
-                  controls
-                  autoPlay
-                  src={assets.after_movie}
-                  preload="auto"
-                  className="absolute inset-0 w-full h-full"
-                >
-                  Your browser does not support the video tag.
-                </video>
-              )}
             </div>
           </motion.div>
         </div>

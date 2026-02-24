@@ -34,9 +34,7 @@ import thumb_tiktok3 from "./images/thumb_tiktok3.png";
 import thumb_blog1 from "./images/thumb_blog1.png";
 import thumb_blog2 from "./images/thumb_blog2.png";
 import thumb_blog3 from "./images/thumb_blog3.png";
-import artikel_luaran from "./docs/PKM-AI KKN 31.pdf";
 import cover_artikel from "./docs/cover_artikel.png";
-import after_movie from "./videos/VIDEO_ KEL. 31.mp4";
 interface ViteImageModule {
   default: string;
 }
@@ -171,9 +169,7 @@ const assets = {
   thumb_blog1,
   thumb_blog2,
   thumb_blog3,
-  artikel_luaran,
   cover_artikel,
-  after_movie,
 };
 
 export const company_logos = [
