@@ -38,6 +38,8 @@ const Hero: React.FC<HeroProps> = ({ theme, setGlobalModalOpen }) => {
       <img
         src={theme === "dark" ? assets.background : assets.backgroundlight}
         alt="Background"
+        loading="eager"
+        fetchPriority="high"
         className="absolute inset-0 w-full h-full object-cover object-center -z-10 opacity-30 blur-[10px]"
       />
 
@@ -165,16 +167,33 @@ const Hero: React.FC<HeroProps> = ({ theme, setGlobalModalOpen }) => {
             </h3>
 
             {/* YOUTUBE IFRAME PLAYER */}
-            <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg bg-black">
+            {/* <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg bg-black">
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/MTHhpEUHlwk?si=D74W_2kHtyOEgeeH"
+                src={assets.after_movie}
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 className="absolute inset-0 w-full h-full"
               ></iframe>
+            </div> */}
+
+            {/* Video Player untuk File Lokal */}
+            <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg bg-black">
+              {open && (
+                <video
+                  width="100%"
+                  height="100%"
+                  controls
+                  autoPlay
+                  src={assets.after_movie}
+                  preload="auto"
+                  className="absolute inset-0 w-full h-full"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              )}
             </div>
           </motion.div>
         </div>

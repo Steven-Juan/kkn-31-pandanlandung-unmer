@@ -30,12 +30,10 @@ const LogoDisplay: React.FC = () => {
               key={index}
               src={logo}
               alt="Company Logo"
-              className="
-                mx-4 sm:mx-8 md:mx-10 lg:mx-14
-                h-15 sm:h-20 md:h-20 lg:h-25
-                opacity-60 hover:opacity-100
-                transition duration-300
-                "
+              loading="lazy"
+              decoding="async"
+              onLoad={(e) => (e.currentTarget.style.opacity = "0.6")}
+              className="mx-4 sm:mx-8 md:mx-10 lg:mx-14 h-15 sm:h-20 md:h-25 w-auto opacity-0 transition-opacity duration-500 hover:opacity-100 cursor-pointer"
             />
           ),
         )}

@@ -14,8 +14,8 @@ const luaranData = [
     title: "Poster Program Kerja",
     category: "Postergrafis",
     desc: "Visualisasi program konservasi sumber air dan pengembangan potensi desa Pandanlandung.",
-    image: assets.cover_artikel,
-    link: assets.cover_artikel,
+    image: "",
+    link: "",
     isPopup: false,
   },
   {

@@ -38,6 +38,8 @@ const HeroCarousel = () => {
               <img
                 src={item.image}
                 alt={item.title}
+                loading={index === 0 ? "eager" : "lazy"}
+                decoding="async"
                 className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
               />
 

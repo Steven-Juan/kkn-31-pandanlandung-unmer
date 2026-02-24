@@ -9,22 +9,10 @@ type Article = {
 
 const articles: Article[] = [
   {
-    thumbnail: assets.thumb_blog1, // Pastikan menambahkan asset ini
+    thumbnail: assets.thumb_blog3,
     title:
-      "Pembuatan Pagar Dari Bambu Di Sekitar Wilayah Konservasi Sumber Kucur",
-    link: "https://kkn31pandanlandungunmer2026.blogspot.com/2026/02/pembuatan-pagar-dari-bambu-di-sekitar.html",
-  },
-  {
-    thumbnail: assets.thumb_blog2, // Pastikan menambahkan asset ini
-    title:
-      "Pembuatan Jembatan di Sumber Kucur Oleh Kelompok KKN 31 Berlangsung Lancar",
-    link: "https://kkn31pandanlandungunmer2026.blogspot.com/2026/02/pembuatan-jembatan-di-sumber-kucur-oleh.html",
-  },
-  {
-    thumbnail: assets.thumb_blog3, // Pastikan menambahkan asset ini
-    title:
-      "Pelaksanaan Pembukaan KKN UNMER Malang 2026 Desa Pandanlandung Khidmat",
-    link: "https://kkn31pandanlandungunmer2026.blogspot.com/2026/02/pembukaan-kkn-di-desa-pandanlandung.html",
+      "Peduli Lingkungan, Tim KKN Universitas Merdeka Malang Dorong Konservasi Sumber Air di Desa Pandanlandung",
+    link: "https://kkn31pandanlandungunmer2026.blogspot.com/2026/02/peduli-lingkungan-tim-kkn-universitas.html",
   },
 ];
 

@@ -85,20 +85,19 @@ const ProgramKerja: React.FC<ProgramKerjaProps> = ({ setGlobalModalOpen }) => {
       {previewImage && (
         <div
           onClick={handleClosePreview}
-          className="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center z-[99999] p-4"
+          className="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center z-99999 p-4"
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3 }}
             onClick={(e) => e.stopPropagation()}
-            // Menggunakan h-fit dan w-fit agar container mengikuti ukuran gambar yang sudah di-contain
             className="relative max-w-4xl max-h-[90vh] flex items-center justify-center"
           >
-            {/* TOMBOL CLOSE - Sekarang nempel di pojok kanan atas gambar */}
+            {/* TOMBOL CLOSE */}
             <button
               onClick={handleClosePreview}
-              className="absolute -top-4 -right-4 z-[100000] bg-primary hover:bg-red-500 text-white p-2 rounded-full shadow-xl transition-all duration-300 group"
+              className="absolute -top-4 -right-4 z-100000 bg-primary hover:bg-red-500 text-white p-2 rounded-full shadow-xl transition-all duration-300 group"
             >
               <img
                 src={assets.close_icon}

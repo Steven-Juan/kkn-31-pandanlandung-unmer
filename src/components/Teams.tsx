@@ -13,12 +13,14 @@ const Teams: React.FC<TeamsProps> = ({ theme }) => {
       <img
         src={theme === "dark" ? assets.background : assets.backgroundlight}
         alt="Background"
+        loading="lazy"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover object-center -z-10 opacity-30 blur-[10px]"
       />
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-100px" }}
         id="team"
         className="flex flex-col items-center gap-10 px-6 sm:px-12 lg:px-24 py-24 text-primary dark:text-text-invert"
       >
@@ -33,7 +35,7 @@ const Teams: React.FC<TeamsProps> = ({ theme }) => {
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              transition={{ duration: 0.5 }}
               viewport={{ once: true }}
               key={index}
               className="group flex flex-col items-center gap-4 p-6 rounded-2xl
@@ -49,6 +51,8 @@ const Teams: React.FC<TeamsProps> = ({ theme }) => {
                 <img
                   src={team.image}
                   alt={team.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover scale-[3] object-[center_10%]"
                 />
               </div>
@@ -95,8 +99,11 @@ const Teams: React.FC<TeamsProps> = ({ theme }) => {
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              transition={{
+                duration: 0.4,
+                delay: (index % 4) * 0.1,
+              }}
+              viewport={{ once: true, margin: "-50px" }}
               key={index}
               className="group flex flex-col items-center gap-4 p-6 rounded-2xl
                         bg-surface dark:bg-primary
@@ -110,10 +117,12 @@ const Teams: React.FC<TeamsProps> = ({ theme }) => {
                 <img
                   src={team.image}
                   alt={team.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover scale-[2] object-[center_15%]"
                 />
               </div>
-
+              {/* Content anggota lainnya */}
               <div className="text-center">
                 <h3
                   className="font-bold text-sm text-text-primary dark:text-text-invert
