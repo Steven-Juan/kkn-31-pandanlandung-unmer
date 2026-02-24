@@ -27,14 +27,6 @@ const luaranData = [
     link: assets.artikel_luaran,
     isPopup: true,
   },
-  {
-    title: "Publikasi Artikel Jurnal KKN",
-    category: "Artikel Ilmiah",
-    desc: "Akses lengkap naskah publikasi hasil pengabdian masyarakat kelompok KKN 31 Pandanlandung.",
-    image: assets.cover_artikel,
-    link: "https://media.neliti.com/media/publications/217742-membangun-kebudayaan-dan-kepribadian-com.pdf", // File PDF yang akan di-preview
-    isPopup: true, // KHUSUS YANG INI POPUP
-  },
 ];
 
 const Luaran: React.FC<LuaranProps> = ({
