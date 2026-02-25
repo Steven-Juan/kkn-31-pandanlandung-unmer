@@ -192,7 +192,7 @@ const Luaran: React.FC<LuaranProps> = ({
               </div>
               <button
                 onClick={handleClosePreview}
-                className="p-2 hover:bg-neutral-200 rounded-full transition-colors"
+                className="p-2 bg-neutral-700 hover:bg-neutral-500 rounded-full transition-colors"
               >
                 <img src={assets.close_icon} alt="Close" className="w-6 h-6" />
               </button>
