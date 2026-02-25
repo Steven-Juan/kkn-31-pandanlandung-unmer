@@ -106,7 +106,7 @@ const InstagramWidget = () => {
 
       {/* BODY / FEED */}
       <div className="px-3 md:px-8 py-6 bg-black/10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post, i) => (
             <a
               key={i}
@@ -115,15 +115,13 @@ const InstagramWidget = () => {
               rel="noopener noreferrer"
               className="relative aspect-square rounded-lg overflow-hidden group cursor-pointer"
             >
-              <div className="relative aspect-16/10 rounded-2xl overflow-hidden bg-neutral-800 ...">
-                <img
-                  src={post.image}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-500"
-                  alt={`Post ${i}`}
-                />
-              </div>
+              <img
+                src={post.image}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover transition-transform duration-500"
+                alt={`Post ${i}`}
+              />
 
               {/* 1. Overlay Background: Fade In */}
               <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />

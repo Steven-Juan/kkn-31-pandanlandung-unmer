@@ -95,15 +95,14 @@ const TiktokWidget = () => {
               className="relative aspect-3/4 rounded-xl overflow-hidden group cursor-pointer"
             >
               {/* Thumbnail */}
-              <div className="relative aspect-16/10 rounded-2xl overflow-hidden bg-neutral-800 ...">
-                <img
-                  src={video.thumbnail}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover"
-                  alt={`TikTok ${i}`}
-                />
-              </div>
+
+              <img
+                src={video.thumbnail}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover"
+                alt={`TikTok ${i}`}
+              />
 
               {/* Overlay: Redup saat hover */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
