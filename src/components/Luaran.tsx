@@ -15,8 +15,8 @@ const luaranData = [
     category: "Postergrafis",
     desc: "Poster rangkuman program kerja KKN Kelompok 31 dalam mengelola sumber air dan memajukan potensi Desa Pandanlandung agar tetap terjaga dan bermanfaat bagi warga.",
     image: assets.cover_poster,
-    link: "https://www.canva.com/design/DAHA7cEEIq0/mN77vC3FjUSHhdPQmCZBiQ/view?utm_content=DAHA7cEEIq0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6be579bab6",
-    isPopup: false,
+    link: "https://drive.google.com/file/d/1XhNoGolCqfhevFm9Km1SeKMq6oTV93wY/preview",
+    isPopup: true,
   },
   {
     title:
@@ -169,7 +169,7 @@ const Luaran: React.FC<LuaranProps> = ({
                   {isCanva ? "CANVA" : "PDF"}
                 </div>
                 <span className="font-bold text-neutral-800 text-sm md:text-base truncate max-w-50 md:max-w-none">
-                  Preview {isCanva ? "Desain Poster" : "Artikel Ilmiah"}
+                  Preview {isCanva ? "Desain Poster" : "Luaran"}
                 </span>
               </div>
               <button
