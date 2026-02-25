@@ -15,7 +15,7 @@ const SocialMedia: React.FC<SocialMediaProps> = ({ hideContent }) => {
       id="social-media"
       initial="hidden"
       whileInView="visible"
-      transition={{ staggerChildren: 0.2 }}
+      transition={{ staggerChildren: 0.1 }}
       viewport={{ once: true }}
       className="px-6 max-w-6xl mx-auto py-20 scroll-mt-5"
     >

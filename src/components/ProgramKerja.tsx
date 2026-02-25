@@ -51,10 +51,11 @@ const ProgramKerja: React.FC<ProgramKerjaProps> = ({ setGlobalModalOpen }) => {
               transform hover:scale-105"
             >
               {/* Image */}
-              <div className="overflow-hidden">
+              <div className="overflow-hidden bg-neutral-200 dark:bg-neutral-800 aspect-video">
                 <img
                   src={item.image}
                   alt={item.title}
+                  loading="lazy"
                   className="w-full h-56 object-cover 
                   transition duration-500"
                 />
@@ -85,19 +86,19 @@ const ProgramKerja: React.FC<ProgramKerjaProps> = ({ setGlobalModalOpen }) => {
       {previewImage && (
         <div
           onClick={handleClosePreview}
-          className="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center z-99999 p-4"
+          className="fixed inset-0 bg-black/95 backdrop-blur-md flex items-center justify-center z-99999 p-6 md:p-12"
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-4xl max-h-[90vh] flex items-center justify-center"
+            className="relative max-w-5xl w-full max-h-[85vh] flex items-center justify-center"
           >
             {/* TOMBOL CLOSE */}
             <button
               onClick={handleClosePreview}
-              className="absolute -top-4 -right-4 z-100000 bg-primary hover:bg-red-500 text-white p-2 rounded-full shadow-xl transition-all duration-300 group"
+              className="absolute -top-12 right-0 md:-top-5 md:-right-5 z-100001 bg-primary hover:bg-red-500 text-white p-2 rounded-full shadow-xl transition-all duration-300 group"
             >
               <img
                 src={assets.close_icon}
@@ -107,11 +108,13 @@ const ProgramKerja: React.FC<ProgramKerjaProps> = ({ setGlobalModalOpen }) => {
             </button>
 
             {/* GAMBAR PREVIEW */}
-            <img
-              src={previewImage}
-              className="rounded-xl shadow-2xl border border-white/20 max-h-[85vh] w-auto object-contain"
-              alt="Preview Program Kerja"
-            />
+            <div className="flex justify-center w-full bg-black/20 rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+              <img
+                src={previewImage}
+                className="max-h-[80vh] w-auto object-contain bg-neutral-900"
+                alt="Preview Program Kerja"
+              />
+            </div>
           </motion.div>
         </div>
       )}

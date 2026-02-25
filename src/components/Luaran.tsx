@@ -58,6 +58,7 @@ const Luaran: React.FC<LuaranProps> = ({
         src={theme === "dark" ? assets.background : assets.backgroundlight}
         alt="Background"
         className="absolute inset-0 w-full h-full object-cover object-center -z-10 opacity-30 blur-[10px]"
+        loading="lazy"
       />
       <motion.div
         className="px-6 max-w-6xl mx-auto py-20"
@@ -66,7 +67,7 @@ const Luaran: React.FC<LuaranProps> = ({
         viewport={{ once: true }}
         variants={{
           hidden: {},
-          show: { transition: { staggerChildren: 0.15 } },
+          show: { transition: { staggerChildren: 0.1 } },
         }}
       >
         <Title
@@ -88,19 +89,19 @@ const Luaran: React.FC<LuaranProps> = ({
                 hidden: { opacity: 0, y: 20 },
                 show: { opacity: 1, y: 0 },
               }}
-              whileHover={{ y: -10 }}
-              className={`group relative overflow-hidden rounded-3xl p-1 border cursor-pointer ${
-                theme === "dark"
-                  ? "border-white/10 bg-white/5"
-                  : "border-black/10 bg-black/5"
-              } backdrop-blur-sm transition-all`}
+              whileHover={{ y: -8 }}
+              className={`group relative rounded-3xl p-1 border overflow-hidden backdrop-blur-sm transition-all ${
+                item.isPopup ? "cursor-zoom-in" : "cursor-pointer"
+              } ${theme === "dark" ? "border-white/10 bg-white/5 shadow-2xl" : "border-black/10 bg-black/5"}`}
             >
               {/* Image Container */}
               <div className="relative aspect-16/10 overflow-hidden rounded-2xl">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
               </div>
@@ -124,9 +125,7 @@ const Luaran: React.FC<LuaranProps> = ({
                 </p>
 
                 <div className="mt-6 flex items-center gap-2 text-sm font-semibold group-hover:gap-4 transition-all text-primary dark:text-text-invert">
-                  <span>
-                    {item.isPopup ? "Preview Artikel" : "Lihat Selengkapnya"}
-                  </span>
+                  <span>{item.isPopup ? "Preview Karya" : "Lihat Detail"}</span>
                   <svg
                     className="w-4 h-4"
                     fill="none"
@@ -156,7 +155,6 @@ const Luaran: React.FC<LuaranProps> = ({
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
             className={`relative w-full max-h-[90vh] overflow-hidden flex flex-col shadow-2xl ${
               isCanva ? "max-w-xl aspect-[1/1.2]" : "max-w-6xl h-[85vh]"
             } bg-white rounded-3xl`}

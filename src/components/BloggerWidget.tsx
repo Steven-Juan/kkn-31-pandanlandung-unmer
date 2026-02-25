@@ -82,11 +82,15 @@ const BloggerWidget = () => {
               className="relative aspect-16/10 rounded-2xl overflow-hidden group cursor-pointer border border-white/5"
             >
               {/* Thumbnail */}
-              <img
-                src={article.thumbnail}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                alt={article.title}
-              />
+              <div className="relative aspect-16/10 rounded-2xl overflow-hidden bg-neutral-800 ...">
+                <img
+                  src={article.thumbnail}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  alt={article.title}
+                />
+              </div>
 
               {/* Overlay Gradient & Judul */}
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent opacity-100 transition-opacity duration-300" />

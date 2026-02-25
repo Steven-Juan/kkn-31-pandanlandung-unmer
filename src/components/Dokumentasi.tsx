@@ -50,6 +50,36 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
     startIndex + ITEMS_PER_PAGE,
   );
 
+  React.useEffect(() => {
+    // 1. Ambil data untuk 1 halaman ke depan dan 1 halaman ke belakang
+    const prevPageItems =
+      currentPage > 1
+        ? sortedItems.slice(
+            (currentPage - 2) * ITEMS_PER_PAGE,
+            (currentPage - 1) * ITEMS_PER_PAGE,
+          )
+        : [];
+
+    const nextPageItems = sortedItems.slice(
+      currentPage * ITEMS_PER_PAGE,
+      (currentPage + 1) * ITEMS_PER_PAGE,
+    );
+
+    const itemsToPreload = [...prevPageItems, ...nextPageItems];
+
+    itemsToPreload.forEach((item) => {
+      if (item.type === "image") {
+        const img = new Image();
+        img.src = item.src;
+      } else {
+        // Preload video secara pasif (hanya metadata agar hemat bandwidth)
+        const video = document.createElement("video");
+        video.src = item.src;
+        video.preload = "metadata";
+      }
+    });
+  }, [currentPage, sortedItems]);
+
   const handleOpenPreview = (item: GalleryItem) => {
     setPreview(item);
     setGlobalModalOpen(true);
@@ -122,16 +152,17 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
           ))}
         </div>
         {/* GRID */}
-        <div
-          key={currentPage}
-          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-5 min-h-100"
-        >
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-5 min-h-100">
           {currentItems.map((item, index) => (
             <motion.div
-              key={index}
+              key={item.id}
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              transition={{
+                duration: 0.4,
+                delay: (index % ITEMS_PER_PAGE) * 0.05,
+              }}
+              viewport={{ once: true }}
               onClick={() => handleOpenPreview(item)}
               className="group relative rounded-2xl overflow-hidden
         bg-accent/80 dark:bg-accent/20
@@ -143,12 +174,15 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
               {item.type === "image" ? (
                 <img
                   src={item.src}
+                  loading="eager"
+                  decoding="async"
                   className="aspect-4/3 w-full object-cover"
                 />
               ) : (
                 <div className="relative">
                   <video
                     src={item.src}
+                    preload="auto"
                     className="aspect-4/3 w-full object-cover"
                     muted
                   />
