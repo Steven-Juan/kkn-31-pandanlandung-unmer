@@ -27,6 +27,14 @@ const luaranData = [
     link: "https://drive.google.com/file/d/1rwqZ317SYYoRT1CUcJMMexCmpLoU1Dcd/preview",
     isPopup: true,
   },
+  {
+    title: "DESAIN LANDSCAPE SUMBER KUCUR",
+    category: "3D Industri",
+    desc: "Model Desain Landscape Sumber Kucur Desa Pandalandung Berbasis Pelestarian Sumber Air dan Keberlanjutan Lingkungan",
+    image: assets.cover_3d_industri,
+    link: "https://drive.google.com/file/d/1lUlU1dJKlO-Ll_5v_1OyZYoCN6NyXbuu/preview",
+    isPopup: true,
+  },
 ];
 
 const Luaran: React.FC<LuaranProps> = ({
