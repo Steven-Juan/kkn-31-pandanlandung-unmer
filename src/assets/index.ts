@@ -34,7 +34,9 @@ import thumb_tiktok3 from "./images/thumb_tiktok3.png";
 import thumb_blog1 from "./images/thumb_blog1.png";
 import thumb_blog2 from "./images/thumb_blog2.png";
 import thumb_blog3 from "./images/thumb_blog3.png";
-import cover_artikel from "./docs/cover_artikel.png";
+import cover_artikel from "./luaran/cover_artikel.png";
+import cover_poster from "./luaran/cover_poster.png";
+
 interface ViteImageModule {
   default: string;
 }
@@ -170,6 +172,7 @@ const assets = {
   thumb_blog2,
   thumb_blog3,
   cover_artikel,
+  cover_poster,
 };
 
 export const company_logos = [

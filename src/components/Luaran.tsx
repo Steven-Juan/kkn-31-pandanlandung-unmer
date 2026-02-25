@@ -14,8 +14,8 @@ const luaranData = [
     title: "Optimalisasi dan Pelestarian Sumber Kucur",
     category: "Postergrafis",
     desc: "Poster rangkuman program kerja KKN Kelompok 31 dalam mengelola sumber air dan memajukan potensi Desa Pandanlandung agar tetap terjaga dan bermanfaat bagi warga.",
-    image: "",
-    link: "",
+    image: assets.cover_poster,
+    link: "https://www.canva.com/design/DAHA7cEEIq0/mN77vC3FjUSHhdPQmCZBiQ/view?utm_content=DAHA7cEEIq0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6be579bab6",
     isPopup: false,
   },
   {
@@ -34,17 +34,19 @@ const Luaran: React.FC<LuaranProps> = ({
   setGlobalModalOpen,
   setHideFooter,
 }) => {
-  const [previewPdf, setPreviewPdf] = useState<string | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
-  const handleOpenPdf = (e: React.MouseEvent, link: string) => {
+  const isCanva = previewUrl?.includes("canva.com");
+
+  const handleOpenPreview = (e: React.MouseEvent, link: string) => {
     e.preventDefault();
-    setPreviewPdf(link);
+    setPreviewUrl(link);
     setGlobalModalOpen(true);
     setHideFooter(true);
   };
 
-  const handleClosePdf = () => {
-    setPreviewPdf(null);
+  const handleClosePreview = () => {
+    setPreviewUrl(null);
     setGlobalModalOpen(false);
     setHideFooter(false);
   };
@@ -79,9 +81,8 @@ const Luaran: React.FC<LuaranProps> = ({
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              // Cek jika isPopup true, maka gunakan fungsi handleOpenPdf
-              onClick={
-                item.isPopup ? (e) => handleOpenPdf(e, item.link) : undefined
+              onClick={(e) =>
+                item.isPopup ? handleOpenPreview(e, item.link) : undefined
               }
               variants={{
                 hidden: { opacity: 0, y: 20 },
@@ -146,62 +147,70 @@ const Luaran: React.FC<LuaranProps> = ({
         </div>
       </motion.div>
 
-      {/* POPUP PREVIEW PDF */}
-      {previewPdf && (
+      {/* POPUP PREVIEW */}
+      {previewUrl && (
         <div
           className="fixed inset-0 z-99999 flex items-center justify-center bg-black/90 backdrop-blur-md p-4 md:p-10"
-          onClick={handleClosePdf}
-          style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0 }}
+          onClick={handleClosePreview}
         >
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="relative w-full h-full max-w-6xl bg-white rounded-2xl overflow-hidden flex flex-col shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className={`relative w-full max-h-[90vh] overflow-hidden flex flex-col shadow-2xl ${
+              isCanva ? "max-w-xl aspect-[1/1.2]" : "max-w-6xl h-[85vh]"
+            } bg-white rounded-3xl`}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* HEADER */}
-            <div className="p-4 bg-neutral-100 flex justify-between items-center border-b z-100">
+            {/* HEADER MODAL */}
+            <div className="p-4 bg-neutral-100 flex justify-between items-center border-b">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-red-500 rounded flex items-center justify-center text-white font-bold text-[10px]">
-                  PDF
+                <div
+                  className={`px-2 py-1 rounded text-[10px] font-bold text-white ${isCanva ? "bg-blue-500" : "bg-red-500"}`}
+                >
+                  {isCanva ? "CANVA" : "PDF"}
                 </div>
-                <span className="font-bold text-neutral-800 tracking-tight text-sm md:text-base">
-                  Preview Artikel Ilmiah
+                <span className="font-bold text-neutral-800 text-sm md:text-base truncate max-w-50 md:max-w-none">
+                  Preview {isCanva ? "Desain Poster" : "Artikel Ilmiah"}
                 </span>
               </div>
               <button
-                onClick={handleClosePdf}
+                onClick={handleClosePreview}
                 className="p-2 hover:bg-neutral-200 rounded-full transition-colors"
               >
                 <img src={assets.close_icon} alt="Close" className="w-6 h-6" />
               </button>
             </div>
 
-            {/* PDF BODY */}
-            <div className="flex-1 w-full h-full bg-neutral-200 relative">
+            {/* BODY (Flexibel Iframe) */}
+            <div className="flex-1 w-full bg-neutral-200 relative overflow-hidden">
               <iframe
-                src={`${previewPdf}#toolbar=0`}
-                className="w-full h-full border-none"
-                title="PDF Preview"
+                src={isCanva ? previewUrl : `${previewUrl}#toolbar=0`}
+                loading="lazy"
+                allowFullScreen
+                allow="fullscreen"
+                className="absolute inset-0 w-full h-full border-none"
+                title="Content Preview"
               />
             </div>
 
-            {/* MODAL FOOTER */}
-            <div className="p-4 bg-white border-t flex justify-between items-center">
-              <p className="hidden md:block text-xs text-neutral-400 italic">
-                *Jika PDF tidak muncul, klik tombol open in new tab untuk
-                melihat dokumen.
+            {/* FOOTER MODAL */}
+            <div className="p-4 bg-white border-t flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-[10px] md:text-xs text-neutral-400 italic text-center md:text-left">
+                {isCanva
+                  ? "*Gunakan scroll mouse atau swipe untuk zoom desain."
+                  : "*Jika dokumen tidak muncul, silakan buka di tab baru."}
               </p>
-              <div className="flex gap-3 w-full md:w-auto">
-                <a
-                  href={previewPdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 md:flex-none text-center bg-primary text-white px-8 py-3 rounded-xl font-bold text-sm hover:bg-primary/90 transition-all active:scale-95 shadow-lg"
-                >
-                  Open in New Tab
-                </a>
-              </div>
+              <a
+                href={previewUrl
+                  .replace("/preview", "/view")
+                  .replace("?embed", "")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full md:w-auto text-center bg-primary text-white px-8 py-3 rounded-xl font-bold text-sm hover:bg-primary/90 transition-all active:scale-95 shadow-md"
+              >
+                Buka Full Screen
+              </a>
             </div>
           </motion.div>
         </div>

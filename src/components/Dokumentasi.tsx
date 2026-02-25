@@ -85,7 +85,7 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
   };
 
   return (
-    <div id="dokumentasi" className="scroll-mt-10 relative z-10">
+    <div id="dokumentasi" className="scroll-mt-10 relative overflow-hidden">
       <img
         src={theme === "dark" ? assets.background : assets.backgroundlight}
         alt="Background"
