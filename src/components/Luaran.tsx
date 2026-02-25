@@ -28,11 +28,21 @@ const luaranData = [
     isPopup: true,
   },
   {
-    title: "DESAIN LANDSCAPE SUMBER KUCUR",
+    title:
+      "Model Desain Landscape Sumber Kucur Desa Pandalandung Berbasis Pelestarian Sumber Air dan Keberlanjutan Lingkungan",
     category: "3D Industri",
-    desc: "Model Desain Landscape Sumber Kucur Desa Pandalandung Berbasis Pelestarian Sumber Air dan Keberlanjutan Lingkungan",
+    desc: "Desain Landscape Sumber Kucur",
     image: assets.cover_3d_industri,
     link: "https://drive.google.com/file/d/1lUlU1dJKlO-Ll_5v_1OyZYoCN6NyXbuu/preview",
+    isPopup: true,
+  },
+  {
+    title:
+      "Air, Alam dan Aksi Nyata : Menjaga Kelestarian Sumber Kucur Desa Pandanlandung",
+    category: "Video",
+    desc: "After Movie KKN 31 Pandanlandung",
+    image: assets.cover_aftermovie,
+    link: "https://drive.google.com/file/d/1SUQbhnWnWB_rSJuHWA5HzVsBSmxPL0tf/preview",
     isPopup: true,
   },
 ];
@@ -172,9 +182,9 @@ const Luaran: React.FC<LuaranProps> = ({
             <div className="p-4 bg-neutral-100 flex justify-between items-center border-b">
               <div className="flex items-center gap-3">
                 <div
-                  className={`px-2 py-1 rounded text-[10px] font-bold text-white ${isCanva ? "bg-blue-500" : "bg-red-500"}`}
+                  className={`px-2 py-1 rounded text-[10px] font-bold text-white ${isCanva ? "bg-blue-500" : "bg-blue-700"}`}
                 >
-                  {isCanva ? "CANVA" : "PDF"}
+                  {isCanva ? "CANVA" : "Google Drive"}
                 </div>
                 <span className="font-bold text-neutral-800 text-sm md:text-base truncate max-w-50 md:max-w-none">
                   Preview {isCanva ? "Desain Poster" : "Luaran"}

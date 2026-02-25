@@ -39,6 +39,7 @@ import thumb_blog3 from "./images/thumb_blog3.png";
 import cover_artikel from "./luaran/cover_artikel.png";
 import cover_poster from "./luaran/cover_poster.png";
 import cover_3d_industri from "./luaran/cover_3d_industri.png";
+import cover_aftermovie from "./luaran/cover_aftermovie.png";
 
 interface ViteImageModule {
   default: string;
@@ -179,6 +180,7 @@ const assets = {
   cover_artikel,
   cover_poster,
   cover_3d_industri,
+  cover_aftermovie,
 };
 
 export const company_logos = [
