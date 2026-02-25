@@ -354,16 +354,16 @@ export const teamData: TeamMember[] = [
     instagram: "rhnnsnn",
   },
   {
-    name: "Shierlyana Andestian",
-    division: "Acara",
-    image: getTeamImg("acara_shierly.jpg"),
-    instagram: "andshierly",
-  },
-  {
     name: "Surya Kusuma Prasetyo Aji",
     division: "Acara",
     image: getTeamImg("acara_surya.jpg"),
     instagram: "eir_nafnapulur",
+  },
+  {
+    name: "Shierlyana Andestian",
+    division: "Acara",
+    image: getTeamImg("acara_shierly.jpg"),
+    instagram: "andshierly",
   },
 
   // ================= PDD =================
