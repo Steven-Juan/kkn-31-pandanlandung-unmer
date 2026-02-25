@@ -68,7 +68,7 @@ function App() {
   }, [isModalOpen]);
 
   return (
-    <div className="relative bg-surface dark:bg-primary w-full min-h-screen max-w-full overflow-x-hidden">
+    <div className="relative bg-surface dark:bg-primary w-full min-h-screen max-w-full ">
       <Navbar theme={theme} setTheme={setTheme} hide={isModalOpen} />
       <main className="w-full max-w-full overflow-hidden">
         <Hero

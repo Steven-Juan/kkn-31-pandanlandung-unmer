@@ -52,7 +52,7 @@ const Luaran: React.FC<LuaranProps> = ({
   };
 
   return (
-    <div id="luaran" className="relative z-10 scroll-mt-10 overflow-hidden">
+    <div id="luaran" className="relative z-10 scroll-mt-10 ">
       {/* Background */}
       <img
         src={theme === "dark" ? assets.background : assets.backgroundlight}

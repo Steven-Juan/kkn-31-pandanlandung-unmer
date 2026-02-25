@@ -28,7 +28,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, setTheme, hide }) => {
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 font-medium sticky top-0 z-20 backdrop-blur-xl dark:bg-yellow-950/70 bg-white/50"
+      className="flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 font-medium sticky top-0 z-999 backdrop-blur-xl dark:bg-yellow-950/70 bg-white/50"
     >
       <a href="/" className="flex items-center shrink-0">
         <img

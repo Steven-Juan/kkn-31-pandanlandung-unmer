@@ -107,6 +107,20 @@ const Footer: React.FC<FooterProps> = ({ theme }) => {
             className="w-5 h-5"
           />
         </a>
+        <a
+          href="https://github.com/Steven-Juan/kkn-31-pandanlandung-unmer"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:opacity-70 transition"
+        >
+          <img
+            src={
+              theme === "dark" ? assets.github_icon_dark : assets.github_icon
+            }
+            alt="GitHub"
+            className="w-5 h-5"
+          />
+        </a>
       </motion.div>
     </motion.div>
   );

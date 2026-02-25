@@ -24,6 +24,8 @@ import tiktok_icon from "./icons/tiktok_icon.svg";
 import tiktok_icon_dark from "./icons/tiktok_icon_dark.png";
 import blogger_icon from "./icons/blogger.png";
 import blogger_icon_dark from "./icons/blogger_dark.png";
+import github_icon from "./icons/github.png";
+import github_icon_dark from "./icons/github_dark.png";
 import logo_kkn_simple from "./logos/logo_kkn_simple.png";
 import post_ig_day16 from "./images/post_ig_day16.jpg";
 import post_ig_day17 from "./images/post_ig_day17.jpg";
@@ -158,6 +160,8 @@ const assets = {
   instagram_icon_footer_dark,
   tiktok_icon,
   tiktok_icon_dark,
+  github_icon,
+  github_icon_dark,
   logo_kkn_simple,
   carousel_2,
   carousel_3,
