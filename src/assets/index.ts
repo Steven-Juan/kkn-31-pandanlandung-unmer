@@ -246,7 +246,7 @@ const fotoFiles = import.meta.glob<ViteAssetModule>(
   { eager: true },
 );
 const videoFiles = import.meta.glob<ViteAssetModule>(
-  "./dokumentasi/video/*.mp4",
+  "./dokumentasi/video/*.{mp4,mov}",
   { eager: true },
 );
 
