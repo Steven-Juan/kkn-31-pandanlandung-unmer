@@ -26,6 +26,9 @@
 @layer base {
   html {
     font-family: var(--font-sans);
+    overflow-x: hidden;
+    width: 100vw;
+    max-width: 100%;
   }
 
   body {
@@ -39,6 +42,10 @@
     overflow-x: hidden;
     overflow-y: auto; 
     width: 100%;
+    position: relative;
+    
+    overscroll-behavior-x: none; 
+    touch-action: pan-y;
   }
 }
 
@@ -78,4 +85,12 @@ html:not(.dark) .rainbow::before {
 
 .animate-marquee {
   animation: marqueeScroll 30s linear infinite;
+}
+@media (pointer: coarse) {
+  #custom-cursor-container {
+    display: none !important;
+  }
+  body {
+    cursor: auto !important;
+  }
 }

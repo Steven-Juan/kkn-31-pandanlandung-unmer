@@ -69,30 +69,35 @@ function App() {
   }, [isModalOpen]);
 
   return (
-    <div className="relative bg-surface dark:bg-primary w-full min-h-screen">
+    <div className="relative bg-surface dark:bg-primary w-full min-h-screen max-w-full overflow-x-hidden">
       <Navbar theme={theme} setTheme={setTheme} hide={isModalOpen} />
-      <Hero
-        theme={theme}
-        setTheme={setTheme}
-        setGlobalModalOpen={setIsModalOpen}
-      />
-      <About />
-      <Teams theme={theme} />
-      <ProgramKerja setGlobalModalOpen={setIsModalOpen} />
-      <Dokumentasi
-        theme={theme}
-        setGlobalModalOpen={setIsModalOpen}
-        setHideSocial={setHideSocial}
-      />
-      <SocialMedia hideContent={hideSocial} />
-      <Luaran
-        theme={theme}
-        setGlobalModalOpen={setIsModalOpen}
-        setHideFooter={setHideFooter}
-      />
-      {!hideFooter && <Footer theme={theme} />}
+      <main className="w-full max-w-full overflow-hidden">
+        <Hero
+          theme={theme}
+          setTheme={setTheme}
+          setGlobalModalOpen={setIsModalOpen}
+        />
+        <About />
+        <Teams theme={theme} />
+        <ProgramKerja setGlobalModalOpen={setIsModalOpen} />
+        <Dokumentasi
+          theme={theme}
+          setGlobalModalOpen={setIsModalOpen}
+          setHideSocial={setHideSocial}
+        />
+        <SocialMedia hideContent={hideSocial} />
+        <Luaran
+          theme={theme}
+          setGlobalModalOpen={setIsModalOpen}
+          setHideFooter={setHideFooter}
+        />
+        {!hideFooter && <Footer theme={theme} />}
+      </main>
       {/* FIXED CONTAINER KURSOR */}
-      <div className="fixed inset-0 pointer-events-none z-999999 overflow-hidden">
+      <div
+        id="custom-cursor-container"
+        className="fixed inset-0 pointer-events-none z-999999 overflow-hidden"
+      >
         {/* Custom Cursor Ring */}
         <div
           ref={outlineRef}
