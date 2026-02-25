@@ -30,7 +30,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, setTheme, hide }) => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 font-medium sticky top-0 z-20 backdrop-blur-xl dark:bg-yellow-950/70 bg-white/50"
     >
-      <a href="/" className="flex items-center">
+      <a href="/" className="flex items-center shrink-0">
         <img
           src={assets.logo_kkn}
           className="w-auto h-15"

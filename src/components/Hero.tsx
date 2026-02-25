@@ -129,7 +129,7 @@ const Hero: React.FC<HeroProps> = ({ theme, setGlobalModalOpen }) => {
             >
               <path d="M8 5v14l11-7-11-7z" />
             </svg>
-            Watch After Movie
+            Tonton After Movie
           </button>
         </motion.div>
         <motion.div
@@ -166,13 +166,13 @@ const Hero: React.FC<HeroProps> = ({ theme, setGlobalModalOpen }) => {
               After Movie KKN 31
             </h3>
 
-            {/* YOUTUBE IFRAME PLAYER */}
+            {/* IFRAME PLAYER */}
             <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg bg-black">
               <iframe
                 width="100%"
                 height="100%"
                 src="https://drive.google.com/file/d/1SUQbhnWnWB_rSJuHWA5HzVsBSmxPL0tf/preview"
-                title="YouTube video player"
+                title="Video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 className="absolute inset-0 w-full h-full"

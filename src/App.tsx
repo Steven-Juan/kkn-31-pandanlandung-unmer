@@ -69,7 +69,7 @@ function App() {
   }, [isModalOpen]);
 
   return (
-    <div className="relative bg-surface dark:bg-primary">
+    <div className="relative bg-surface dark:bg-primary w-full min-h-screen">
       <Navbar theme={theme} setTheme={setTheme} hide={isModalOpen} />
       <Hero
         theme={theme}
@@ -91,18 +91,21 @@ function App() {
         setHideFooter={setHideFooter}
       />
       {!hideFooter && <Footer theme={theme} />}
-      {/* Custom Cursor Ring */}
-      <div
-        ref={outlineRef}
-        className="fixed top-0 left-0 h-10 w-10 rounded-full border border-secondary pointer-events-none z-1000001"
-        style={{ transition: "transform 0.1s ease-out" }}
-      ></div>
+      {/* FIXED CONTAINER KURSOR */}
+      <div className="fixed inset-0 pointer-events-none z-999999 overflow-hidden">
+        {/* Custom Cursor Ring */}
+        <div
+          ref={outlineRef}
+          className="fixed top-0 left-0 h-10 w-10 rounded-full border border-secondary pointer-events-none z-1000001"
+          style={{ transition: "transform 0.1s ease-out" }}
+        ></div>
 
-      {/* Custom Cursor Dot */}
-      <div
-        ref={dotRef}
-        className="fixed top-0 left-0 h-3 w-3 rounded-full bg-accent pointer-events-none z-1000001"
-      ></div>
+        {/* Custom Cursor Dot */}
+        <div
+          ref={dotRef}
+          className="fixed top-0 left-0 h-3 w-3 rounded-full bg-accent pointer-events-none z-1000001"
+        ></div>
+      </div>
     </div>
   );
 }
