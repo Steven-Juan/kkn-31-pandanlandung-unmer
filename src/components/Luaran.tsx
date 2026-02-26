@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 import assets from "../assets";
 import Title from "./Title";
+import ThreeRenderer from "./ThreeRenderer";
 
 type LuaranProps = {
   theme: "light" | "dark";
@@ -43,6 +44,15 @@ const luaranData = [
     desc: "After Movie KKN 31 Pandanlandung",
     image: assets.cover_aftermovie,
     link: "https://drive.google.com/file/d/1SUQbhnWnWB_rSJuHWA5HzVsBSmxPL0tf/preview",
+    isPopup: true,
+  },
+  {
+    title: "Desain Fasilitas Sumber Kucur 3D",
+    category: "3D Modelling",
+    desc: "Visualisasi interaktif 3D untuk perencanaan fasilitas tempat sampah, jembatan, dan gerbang di area Sumber Kucur.",
+    image: assets.cover_3d_industri,
+    link: "/public/models/sumber_kucur_3d.glb",
+    is3D: true,
     isPopup: true,
   },
 ];
@@ -199,15 +209,19 @@ const Luaran: React.FC<LuaranProps> = ({
             </div>
 
             {/* BODY (Flexibel Iframe) */}
-            <div className="flex-1 w-full bg-neutral-200 relative overflow-hidden">
-              <iframe
-                src={isCanva ? previewUrl : `${previewUrl}#toolbar=0`}
-                loading="lazy"
-                allowFullScreen
-                allow="fullscreen"
-                className="absolute inset-0 w-full h-full border-none"
-                title="Content Preview"
-              />
+            <div className="flex-1 w-full relative overflow-hidden">
+              {previewUrl?.endsWith(".glb") ? (
+                /* MENGGUNAKAN REACT THREE FIBER */
+                <ThreeRenderer modelPath={previewUrl} />
+              ) : (
+                /* DRIVE / PDF / CANVA */
+                <iframe
+                  src={isCanva ? previewUrl : `${previewUrl}#toolbar=0`}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full border-none"
+                  title="Content Preview"
+                />
+              )}
             </div>
 
             {/* FOOTER MODAL */}
