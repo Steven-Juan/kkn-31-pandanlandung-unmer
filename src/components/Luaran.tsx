@@ -192,12 +192,24 @@ const Luaran: React.FC<LuaranProps> = ({
             <div className="p-4 bg-neutral-100 flex justify-between items-center border-b">
               <div className="flex items-center gap-3">
                 <div
-                  className={`px-2 py-1 rounded text-[10px] font-bold text-white ${isCanva ? "bg-blue-500" : "bg-blue-700"}`}
+                  className={`px-2 py-1 rounded text-[10px] font-bold text-white ${
+                    previewUrl.endsWith(".glb")
+                      ? "bg-orange-500"
+                      : isCanva
+                        ? "bg-blue-500"
+                        : "bg-blue-700"
+                  }`}
                 >
-                  {isCanva ? "CANVA" : "Google Drive"}
+                  {previewUrl.endsWith(".glb")
+                    ? "3D MODEL"
+                    : isCanva
+                      ? "CANVA"
+                      : "DOCUMENT"}
                 </div>
-                <span className="font-bold text-neutral-800 text-sm md:text-base truncate max-w-50 md:max-w-none">
-                  Preview {isCanva ? "Desain Poster" : "Luaran"}
+                <span className="font-bold text-neutral-800 text-sm md:text-base truncate max-w-[200px] md:max-w-none">
+                  {previewUrl.endsWith(".glb")
+                    ? "Preview Desain 3D"
+                    : `Preview ${isCanva ? "Poster" : "Luaran"}`}
                 </span>
               </div>
               <button
@@ -227,10 +239,14 @@ const Luaran: React.FC<LuaranProps> = ({
             {/* FOOTER MODAL */}
             <div className="p-4 bg-white border-t flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-[10px] md:text-xs text-neutral-400 italic text-center md:text-left">
-                {isCanva
-                  ? "*Gunakan scroll mouse atau swipe untuk zoom desain."
-                  : "*Jika dokumen tidak muncul, silakan buka di tab baru."}
+                {previewUrl.endsWith(".glb")
+                  ? "*Gunakan mouse/sentuhan untuk memutar dan memperbesar objek 3D."
+                  : isCanva
+                    ? "*Gunakan scroll mouse atau swipe untuk zoom desain."
+                    : "*Jika dokumen tidak muncul, silakan buka di tab baru."}
               </p>
+
+              {/* Tombol Full Screen tetap dipertahankan untuk semua tipe */}
               <a
                 href={previewUrl
                   .replace("/preview", "/view")
@@ -239,7 +255,9 @@ const Luaran: React.FC<LuaranProps> = ({
                 rel="noopener noreferrer"
                 className="w-full md:w-auto text-center bg-primary text-white px-8 py-3 rounded-xl font-bold text-sm hover:bg-primary/90 transition-all active:scale-95 shadow-md"
               >
-                Buka Full Screen
+                {previewUrl.endsWith(".glb")
+                  ? "Download / Lihat File"
+                  : "Buka Full Screen"}
               </a>
             </div>
           </motion.div>
