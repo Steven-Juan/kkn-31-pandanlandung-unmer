@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
@@ -92,6 +93,7 @@ function App() {
         />
         {!hideFooter && <Footer theme={theme} />}
       </main>
+      <Analytics />
       {/* FIXED CONTAINER KURSOR */}
       <div
         id="custom-cursor-container"

@@ -16,6 +16,7 @@
     "@react-three/fiber": "^9.5.0",
     "@tailwindcss/vite": "^4.1.18",
     "@types/three": "^0.183.1",
+    "@vercel/analytics": "^1.6.1",
     "flowbite": "^4.0.1",
     "flowbite-react": "^0.12.17",
     "motion": "^12.34.2",
