@@ -10,13 +10,24 @@ type LuaranProps = {
   setHideFooter: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const luaranData = [
+interface LuaranData {
+  title: string;
+  category: string;
+  desc: string;
+  image: string;
+  link: string;
+  glbLink?: string;
+  is3D?: boolean;
+  isPopup?: boolean;
+}
+
+const luaranData: LuaranData[] = [
   {
     title: "Optimalisasi dan Pelestarian Sumber Kucur",
     category: "Postergrafis",
     desc: "Poster rangkuman program kerja KKN Kelompok 31 dalam mengelola sumber air dan memajukan potensi Desa Pandanlandung agar tetap terjaga dan bermanfaat bagi warga.",
     image: assets.cover_poster,
-    link: "https://drive.google.com/file/d/1XhNoGolCqfhevFm9Km1SeKMq6oTV93wY/preview",
+    link: "https://drive.google.com/file/d/1DKfX0XTz4fTX8Ds-2gE7LtQM4Sm-k_pf/preview",
     isPopup: true,
   },
   {
@@ -25,7 +36,7 @@ const luaranData = [
     category: "PKM-AI",
     desc: "Studi mengenai konservasi sumber air dan edukasi lingkungan sebagai upaya pengembangan desa berkelanjutan di Desa Pandanlandung.",
     image: assets.cover_artikel,
-    link: "https://drive.google.com/file/d/1rwqZ317SYYoRT1CUcJMMexCmpLoU1Dcd/preview",
+    link: "https://drive.google.com/file/d/195CBzBJZWLMFPgKb4CzZWSurqgEZZkEa/preview",
     isPopup: true,
   },
   {
@@ -35,6 +46,8 @@ const luaranData = [
     desc: "Desain Landscape Sumber Kucur",
     image: assets.cover_3d_industri,
     link: "https://drive.google.com/file/d/1lUlU1dJKlO-Ll_5v_1OyZYoCN6NyXbuu/preview",
+    glbLink: "/models/sumber_kucur_3d.glb",
+    is3D: true,
     isPopup: true,
   },
   {
@@ -46,15 +59,6 @@ const luaranData = [
     link: "https://drive.google.com/file/d/1SUQbhnWnWB_rSJuHWA5HzVsBSmxPL0tf/preview",
     isPopup: true,
   },
-  {
-    title: "Desain Fasilitas Sumber Kucur 3D",
-    category: "3D Modelling",
-    desc: "Visualisasi interaktif 3D untuk perencanaan fasilitas tempat sampah, jembatan, dan gerbang di area Sumber Kucur.",
-    image: assets.cover_3d_industri,
-    link: "/models/sumber_kucur_3d.glb",
-    is3D: true,
-    isPopup: true,
-  },
 ];
 
 const Luaran: React.FC<LuaranProps> = ({
@@ -62,19 +66,19 @@ const Luaran: React.FC<LuaranProps> = ({
   setGlobalModalOpen,
   setHideFooter,
 }) => {
-  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [selectedItem, setSelectedItem] = useState<LuaranData | null>(null);
 
-  const isCanva = previewUrl?.includes("canva.com");
+  const isCanva = selectedItem?.link?.includes("canva.com");
 
-  const handleOpenPreview = (e: React.MouseEvent, link: string) => {
+  const handleOpenPreview = (e: React.MouseEvent, item: LuaranData) => {
     e.preventDefault();
-    setPreviewUrl(link);
+    setSelectedItem(item);
     setGlobalModalOpen(true);
     setHideFooter(true);
   };
 
   const handleClosePreview = () => {
-    setPreviewUrl(null);
+    setSelectedItem(null);
     setGlobalModalOpen(false);
     setHideFooter(false);
   };
@@ -111,7 +115,7 @@ const Luaran: React.FC<LuaranProps> = ({
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) =>
-                item.isPopup ? handleOpenPreview(e, item.link) : undefined
+                item.isPopup ? handleOpenPreview(e, item) : undefined
               }
               variants={{
                 hidden: { opacity: 0, y: 20 },
@@ -175,7 +179,7 @@ const Luaran: React.FC<LuaranProps> = ({
       </motion.div>
 
       {/* POPUP PREVIEW */}
-      {previewUrl && (
+      {selectedItem && (
         <div
           className="fixed inset-0 z-99999 flex items-center justify-center bg-black/90 backdrop-blur-md p-4 md:p-10"
           onClick={handleClosePreview}
@@ -193,21 +197,21 @@ const Luaran: React.FC<LuaranProps> = ({
               <div className="flex items-center gap-3">
                 <div
                   className={`px-2 py-1 rounded text-[10px] font-bold text-white ${
-                    previewUrl.endsWith(".glb")
+                    selectedItem.glbLink
                       ? "bg-orange-500"
                       : isCanva
                         ? "bg-blue-500"
                         : "bg-blue-700"
                   }`}
                 >
-                  {previewUrl.endsWith(".glb")
+                  {selectedItem.glbLink
                     ? "3D MODEL"
                     : isCanva
                       ? "CANVA"
                       : "DOCUMENT"}
                 </div>
-                <span className="font-bold text-neutral-800 text-sm md:text-base truncate max-w-50 md:max-w-none">
-                  {previewUrl.endsWith(".glb")
+                <span className="font-bold text-neutral-800 text-sm md:text-base truncate max-w-50">
+                  {selectedItem.glbLink
                     ? "Preview Desain 3D"
                     : `Preview ${isCanva ? "Poster" : "Luaran"}`}
                 </span>
@@ -220,16 +224,17 @@ const Luaran: React.FC<LuaranProps> = ({
               </button>
             </div>
 
-            {/* BODY (Flexibel Iframe) */}
-            <div className="flex-1 w-full relative overflow-hidden">
-              {previewUrl?.endsWith(".glb") ? (
-                /* MENGGUNAKAN REACT THREE FIBER */
-                <ThreeRenderer modelPath={previewUrl} />
+            {/* BODY (GLB atau Iframe) */}
+            <div className="flex-1 w-full relative overflow-hidden bg-[#eeeeee]">
+              {selectedItem.glbLink ? (
+                <ThreeRenderer modelPath={selectedItem.glbLink} />
               ) : (
-                /* DRIVE / PDF / CANVA */
                 <iframe
-                  src={isCanva ? previewUrl : `${previewUrl}#toolbar=0`}
-                  loading="lazy"
+                  src={
+                    isCanva
+                      ? selectedItem.link
+                      : `${selectedItem.link}#toolbar=0`
+                  }
                   className="absolute inset-0 w-full h-full border-none"
                   title="Content Preview"
                 />
@@ -239,24 +244,19 @@ const Luaran: React.FC<LuaranProps> = ({
             {/* FOOTER MODAL */}
             <div className="p-4 bg-white border-t flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-[10px] md:text-xs text-neutral-400 italic text-center md:text-left">
-                {previewUrl.endsWith(".glb")
+                {selectedItem.glbLink
                   ? "*Gunakan mouse/sentuhan untuk memutar dan memperbesar objek 3D."
-                  : isCanva
-                    ? "*Gunakan scroll mouse atau swipe untuk zoom desain."
-                    : "*Jika dokumen tidak muncul, silakan buka di tab baru."}
+                  : "*Jika dokumen tidak muncul, silakan buka di Google Drive."}
               </p>
 
-              {/* Tombol Full Screen tetap dipertahankan untuk semua tipe */}
               <a
-                href={previewUrl
-                  .replace("/preview", "/view")
-                  .replace("?embed", "")}
+                href={selectedItem.link.replace("/preview", "/view")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full md:w-auto text-center bg-primary text-white px-8 py-3 rounded-xl font-bold text-sm hover:bg-primary/90 transition-all active:scale-95 shadow-md"
               >
-                {previewUrl.endsWith(".glb")
-                  ? "Download / Lihat File"
+                {selectedItem.glbLink
+                  ? "Buka di Google Drive"
                   : "Buka Full Screen"}
               </a>
             </div>
