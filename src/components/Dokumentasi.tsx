@@ -137,7 +137,7 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
             <button
               key={type}
               onClick={() => {
-                setFilter(type); // Tidak perlu 'as any' karena 'type' sudah pasti salah satu dari tiga nilai tersebut
+                setFilter(type);
                 setCurrentPage(1);
               }}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 border
@@ -196,14 +196,10 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
 
               <div className="absolute inset-0 flex flex-col justify-end p-4 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300">
                 <h1 className="text-base font-medium">
-                  <div className="absolute inset-0 flex flex-col justify-end p-4 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300">
-                    <h1 className="text-base font-medium">
-                      {item.title ??
-                        (item.type === "video"
-                          ? "Video Dokumentasi"
-                          : "Dokumentasi KKN")}
-                    </h1>
-                  </div>
+                  {item.title ??
+                    (item.type === "video"
+                      ? "Video Dokumentasi"
+                      : "Dokumentasi KKN")}
                 </h1>
               </div>
             </motion.div>
@@ -211,45 +207,59 @@ const Dokumentasi: React.FC<DokumentasiProps> = ({
         </div>
 
         {/* PAGINATION */}
-        <div className=" flex items-center justify-between border-t border-white/10 mt-4 pt-4">
-          <p className="text-sm text-gray-800 dark:text-gray-400">
+        <div className=" flex flex-col sm:flex-row items-center justify-between border-t border-white/10 mt-4 pt-4 gap-4">
+          <p className="text-xs md:text-sm text-gray-800 dark:text-gray-400 order-2 sm:order-1">
             Showing <span className="font-medium">{startIndex + 1}</span> to{" "}
             <span className="font-medium">
               {Math.min(startIndex + ITEMS_PER_PAGE, totalItems)}
             </span>{" "}
-            of <span className="font-medium">{totalItems}</span> results
+            of <span className="font-medium">{totalItems}</span>{" "}
+            <span className="hidden xs:inline">results</span>
           </p>
 
-          <div className="flex gap-2">
+          {/* CONTROLS */}
+          <div className="flex items-center gap-1 md:gap-2 order-1 sm:order-2">
+            {/* Button Prev */}
             <button
               disabled={currentPage === 1}
               onClick={() => setCurrentPage((p) => p - 1)}
-              className="px-3 py-1 rounded-md dark:bg-white/10 bg-black/30 disabled:opacity-40 hover:bg-primary/50 transition-colors"
+              className="px-3 py-1.5 rounded-md dark:bg-white/10 bg-black/10 disabled:opacity-30 hover:bg-primary/50 transition-colors text-sm font-medium"
             >
               Prev
             </button>
 
-            {getPaginationGroup().map((item, i) => (
-              <button
-                key={i}
-                disabled={item === "..."}
-                onClick={() => typeof item === "number" && setCurrentPage(item)}
-                className={`px-3 py-1 rounded-md transition-all ${
-                  currentPage === item
-                    ? "dark:bg-accent bg-primary text-white scale-110 shadow-md"
-                    : item === "..."
-                      ? "cursor-default opacity-50"
-                      : "dark:bg-white/10 bg-black/30 hover:bg-primary/20"
-                }`}
-              >
-                {item}
-              </button>
-            ))}
+            {/* ANGKA HALAMAN */}
+            <div className="flex gap-1 md:gap-2">
+              {getPaginationGroup().map((item, i) => (
+                <button
+                  key={i}
+                  disabled={item === "..."}
+                  onClick={() =>
+                    typeof item === "number" && setCurrentPage(item)
+                  }
+                  className={`px-3 py-1.5 rounded-md transition-all text-sm font-medium ${
+                    currentPage === item
+                      ? "dark:bg-accent bg-primary text-white scale-105 shadow-md"
+                      : item === "..."
+                        ? "cursor-default opacity-50 px-1"
+                        : "dark:bg-white/10 bg-black/10 hover:bg-primary/20"
+                  } ${
+                    typeof item === "number" &&
+                    Math.abs(currentPage - Number(item)) <= 1
+                      ? "flex"
+                      : "hidden sm:flex"
+                  }`}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
 
+            {/* Button Next */}
             <button
               disabled={currentPage === totalPages}
               onClick={() => setCurrentPage((p) => p + 1)}
-              className="px-3 py-1 rounded-md dark:bg-white/10 bg-black/30 disabled:opacity-40 hover:bg-primary/50 transition-colors"
+              className="px-3 py-1.5 rounded-md dark:bg-white/10 bg-black/10 disabled:opacity-30 hover:bg-primary/50 transition-colors text-sm font-medium"
             >
               Next
             </button>

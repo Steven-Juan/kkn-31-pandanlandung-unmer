@@ -206,7 +206,7 @@ const Luaran: React.FC<LuaranProps> = ({
                       ? "CANVA"
                       : "DOCUMENT"}
                 </div>
-                <span className="font-bold text-neutral-800 text-sm md:text-base truncate max-w-[200px] md:max-w-none">
+                <span className="font-bold text-neutral-800 text-sm md:text-base truncate max-w-50 md:max-w-none">
                   {previewUrl.endsWith(".glb")
                     ? "Preview Desain 3D"
                     : `Preview ${isCanva ? "Poster" : "Luaran"}`}
