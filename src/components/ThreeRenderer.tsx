@@ -4,7 +4,7 @@ import { OrbitControls, Stage, useGLTF } from "@react-three/drei";
 
 // Komponen internal untuk meload model
 function Model({ path }: { path: string }) {
-  const { scene } = useGLTF(path);
+  const { scene } = useGLTF(window.location.origin + path);
   return <primitive object={scene} />;
 }
 

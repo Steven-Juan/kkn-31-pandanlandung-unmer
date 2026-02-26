@@ -51,7 +51,7 @@ const luaranData = [
     category: "3D Modelling",
     desc: "Visualisasi interaktif 3D untuk perencanaan fasilitas tempat sampah, jembatan, dan gerbang di area Sumber Kucur.",
     image: assets.cover_3d_industri,
-    link: "/public/models/sumber_kucur_3d.glb",
+    link: "/models/sumber_kucur_3d.glb",
     is3D: true,
     isPopup: true,
   },
