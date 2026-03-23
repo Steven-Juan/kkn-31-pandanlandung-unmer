@@ -56,7 +56,7 @@ const luaranData: LuaranData[] = [
     category: "Video",
     desc: "After Movie KKN 31 Pandanlandung",
     image: assets.cover_aftermovie,
-    link: "https://drive.google.com/file/d/1SUQbhnWnWB_rSJuHWA5HzVsBSmxPL0tf/preview",
+    link: "https://www.youtube.com/embed/refNENRdxyg?si=TrCsPeqHE8lvKNlb",
     isPopup: true,
   },
 ];
