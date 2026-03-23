@@ -171,7 +171,7 @@ const Hero: React.FC<HeroProps> = ({ theme, setGlobalModalOpen }) => {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://drive.google.com/file/d/1SUQbhnWnWB_rSJuHWA5HzVsBSmxPL0tf/preview"
+                src="https://www.youtube.com/embed/refNENRdxyg?si=TrCsPeqHE8lvKNlb"
                 title="Video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
